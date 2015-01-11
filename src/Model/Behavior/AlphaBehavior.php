@@ -1,13 +1,12 @@
 <?php
 namespace App\Model\Behavior;
 
-use Cake\ORM\Behavior;
-use Cake\ORM\Table;
-use Cake\Log\Log;
 use Cake\Event\Event;
-use Cake\Validation\Validator;
-use Cake\ORM\RulesChecker;
+use Cake\Log\Log;
+use Cake\ORM\Behavior;
 use Cake\ORM\Entity;
+use Cake\ORM\RulesChecker;
+use Cake\Validation\Validator;
 
 /**
  * Alpha behavior
@@ -48,4 +47,5 @@ class AlphaBehavior extends Behavior {
 	public function afterSave(Event $event, Entity $entity, \ArrayObject $options) {
 		Log::write('info', 'AlphaBehavior:afterSave', 'exec');
 	}
+
 }

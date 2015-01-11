@@ -1,19 +1,17 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
+use Cake\Event\Event;
+use Cake\Log\Log;
+use Cake\ORM\Entity;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use Cake\Log\Log;
-use Cake\Event\Event;
-use Cake\ORM\Entity;
 
 /**
  * Tokens Model
  */
-class TokensTable extends Table
-{
+class TokensTable extends Table {
 
 	/**
 	 * Initialize method
@@ -21,8 +19,7 @@ class TokensTable extends Table
 	 * @param array $config The configuration for the Table.
 	 * @return void
 	 */
-	public function initialize(array $config)
-	{
+	public function initialize(array $config) {
 		Log::write('info', 'TokensTable:initialize', 'exec');
 
 		$this->table('tokens');
@@ -30,7 +27,7 @@ class TokensTable extends Table
 		$this->primaryKey('id');
 		$this->addBehavior('Timestamp');
 
-			$this->addBehavior('Alpha');
+		$this->addBehavior('Alpha');
 	}
 
 	/**
@@ -39,8 +36,7 @@ class TokensTable extends Table
 	 * @param \Cake\Validation\Validator $validator instance
 	 * @return \Cake\Validation\Validator
 	 */
-	public function validationDefault(Validator $validator)
-	{
+	public function validationDefault(Validator $validator) {
 		Log::write('info', 'TokensTable:validationDefault', 'exec');
 
 		$validator

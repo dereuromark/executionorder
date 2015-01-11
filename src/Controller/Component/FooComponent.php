@@ -16,7 +16,7 @@ use Cake\Network\Response;
  */
 class FooComponent extends Component {
 
- 	/**
+	/**
 	 * @return void
 	 */
 	public function startup(Event $event) {

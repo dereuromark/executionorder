@@ -2,9 +2,9 @@
 
 namespace App\View\Helper;
 
-use Cake\View\Helper;
 use Cake\Event\Event;
 use Cake\Log\LogTrait;
+use Cake\View\Helper;
 
 /**
  * Application Helper

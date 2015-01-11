@@ -1,14 +1,13 @@
 <?php
 namespace App\View;
 
-use Cake\View\View;
 use Cake\Log\Log;
+use Cake\View\View;
 
 /**
  * App View class
  */
-class AppView extends View
-{
+class AppView extends View {
 
 	/**
 	 * Initialization hook method.
@@ -18,8 +17,8 @@ class AppView extends View
 	 *
 	 * @return void
 	 */
-	public function initialize()
-	{
+	public function initialize() {
 		Log::write('info', 'AppView::initialize', 'exec');
 	}
+
 }
