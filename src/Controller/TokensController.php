@@ -50,7 +50,7 @@ class TokensController extends AppController {
 	 *
 	 * @return void
 	 */
-	public function model_no_validation() {
+	public function modelNoValidation() {
 		$this->log('Controller.action', 'info', 'exec');
 
 		$token = $this->Tokens->newEntity();
@@ -67,7 +67,7 @@ class TokensController extends AppController {
 	 *
 	 * @return void
 	 */
-	public function model_multi_save() {
+	public function modelMultiSave() {
 		$this->log('Controller.action', 'info', 'exec');
 
 		$token = $this->Tokens->newEntity();

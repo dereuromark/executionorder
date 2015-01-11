@@ -42,8 +42,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<h1>Execution Order Test</h1>
 	<div style="padding: 20px;">
 		<div>
-					<?php echo $this->Html->link('Basic Execution Order Test', array('controller' => 'Tokens', 'action' => 'index'));?>
-				</div>
+			<ul>
+				<li><?php echo $this->Html->link('Basic Execution Order Test', array('controller' => 'Tokens', 'action' => 'index'));?></li>
+				<li><?php echo $this->Html->link('Model Execution Order Test', array('controller' => 'Tokens', 'action' => 'model'));?></li>
+				<li><?php echo $this->Html->link('Model: Saving multiple entities', array('controller' => 'Tokens', 'action' => 'model_multi_save'));?></li>
+				<li><?php echo $this->Html->link('Model: Saving without validation', array('controller' => 'Tokens', 'action' => 'model_no_validation'));?></li>
+				<li><?php echo $this->Html->link('Redirecting', array('controller' => 'Tokens', 'action' => 'redirecting'));?></li>
+			</ul>
+		</div>
 	</div>
 	<div id="content">
 		<?php
