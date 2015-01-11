@@ -67,6 +67,23 @@ class TokensController extends AppController {
 	 *
 	 * @return void
 	 */
+	public function modelNoValidationNoRules() {
+		$this->log('Controller.action', 'info', 'exec');
+
+		$token = $this->Tokens->newEntity();
+		$token = $this->Tokens->patchEntity($token, ['foo' => 'bar'], ['validate' => false]);
+
+		$result = $this->Tokens->save($token, ['checkRules' => false]);
+		if (!$result) {
+			throw new \Exception('Save failed');
+		}
+	}
+
+	/**
+	 * TokensController::model()
+	 *
+	 * @return void
+	 */
 	public function modelMultiSave() {
 		$this->log('Controller.action', 'info', 'exec');
 
