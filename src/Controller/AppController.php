@@ -48,4 +48,12 @@ class AppController extends Controller {
 		$this->log('Controller::afterFilter', 'info', 'exec');
 	}
 
+	/**
+	 * @return void
+	 */
+	public function redirect($url, $status = null) {
+		$this->log('Controller::redirect', 'info', 'exec');
+		return parent::redirect($url, $status);
+	}
+
 }

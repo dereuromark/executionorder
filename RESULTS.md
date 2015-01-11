@@ -69,6 +69,7 @@ Info: FooComponent::beforeFilter
 Info: Controller::beforeFilter
 Info: FooComponent::startup
 Info: Controller.action
+Info: Controller::redirect
 Info: FooComponent::beforeRedirect
 Info: FooComponent::shutdown
 Info: Controller::afterFilter
