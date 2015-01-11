@@ -20,10 +20,6 @@ use Cake\Network\Exception\NotFoundException;
 
 $this->layout = false;
 
-if (!Configure::read('debug')):
-	throw new NotFoundException();
-endif;
-
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
@@ -48,6 +44,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 				<li><?php echo $this->Html->link('Model: Saving multiple entities', array('controller' => 'Tokens', 'action' => 'model_multi_save'));?></li>
 				<li><?php echo $this->Html->link('Model: Saving without validation', array('controller' => 'Tokens', 'action' => 'model_no_validation'));?></li>
 				<li><?php echo $this->Html->link('Redirecting', array('controller' => 'Tokens', 'action' => 'redirecting'));?></li>
+				<li><?php echo $this->Html->link('Exceptions', array('controller' => 'Tokens', 'action' => 'exception'));?></li>
 			</ul>
 		</div>
 	</div>
