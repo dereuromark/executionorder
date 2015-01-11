@@ -1,6 +1,6 @@
 # Executionorder - Results
 
-## Basic action + helper
+## Basic action + component + helper
 ```
 Info: config/paths
 Info: config/bootstrap
