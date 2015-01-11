@@ -22,10 +22,14 @@ the setup traffic lights.
 
 ## Configuration and Usage
 
-Read and edit `config/app.php` and setup the 'Datasources' and any other
+Create `config/app_local.php` from the default template and setup the 'Datasources' and any other
 configuration relevant for your application.
+Run the `cake Migrations migrate` command to have a basic test table (tokens).
 
 Then run it and see the logs output.
+
+## Version notice
+This is only for CakePHP 3.0+. For earlier versions please see [dereuromark.de/2013/01/22/cakephp-tips](http://www.dereuromark.de/2013/01/22/cakephp-tips/#dispatcher-execution-order).
 
 ## Contributing
 
