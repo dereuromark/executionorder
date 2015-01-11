@@ -141,12 +141,13 @@ Email::config(Configure::consume('Email'));
 Log::config(Configure::consume('Log'));
 Security::salt(Configure::consume('Security.salt'));
 
-/**
- * The default crypto extension in 3.0 is OpenSSL.
- * If you are migrating from 2.x uncomment this code to
- * use a more compatible Mcrypt based implementation
- */
-// Security::engine(new \Cake\Utility\Crypto\Mcrypt());
+Log::config('exec', [
+	'className' => 'Cake\Log\Engine\FileLog',
+	'path' => LOGS,
+	'levels' => [],
+	'file' => 'exec',
+	'scopes' => ['exec'],
+]);
 
 /**
  * Setup detectors for mobile and tablet.
@@ -181,12 +182,12 @@ Request::addDetector('tablet', function ($request) {
  *
  */
 
-Plugin::load('Migrations');
+//Plugin::load('Migrations');
 
 // Only try to load DebugKit in development mode
 // Debug Kit should not be installed on a production system
 if (Configure::read('debug')) {
-    Plugin::load('DebugKit', ['bootstrap' => true]);
+	//Plugin::load('DebugKit', ['bootstrap' => true]);
 }
 
 /**
@@ -195,3 +196,7 @@ if (Configure::read('debug')) {
 DispatcherFactory::add('Asset');
 DispatcherFactory::add('Routing');
 DispatcherFactory::add('ControllerFactory');
+
+Log::write('info', 'config/bootstrap', 'exec');
+
+class_alias('Cake\Log\Log', 'Log');

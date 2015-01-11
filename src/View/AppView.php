@@ -14,6 +14,7 @@
 namespace App\View;
 
 use Cake\View\View;
+use Cake\Log\Log;
 
 /**
  * App View class
@@ -31,5 +32,6 @@ class AppView extends View
      */
     public function initialize()
     {
+    	Log::write('info', 'AppView::initialize', 'exec');
     }
 }

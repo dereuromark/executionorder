@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -15,6 +16,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Event\Event;
 
 /**
  * Application Controller
@@ -24,18 +26,40 @@ use Cake\Controller\Controller;
  *
  * @link http://book.cakephp.org/3.0/en/controllers.html#the-app-controller
  */
-class AppController extends Controller
-{
+class AppController extends Controller {
 
-    /**
-     * Initialization hook method.
-     *
-     * Use this method to add common initialization code like loading components.
-     *
-     * @return void
-     */
-    public function initialize()
-    {
-        $this->loadComponent('Flash');
-    }
+	/**
+	 * Initialization hook method.
+	 *
+	 * Use this method to add common initialization code like loading components.
+	 *
+	 * @return void
+	 */
+	public function initialize() {
+		$this->loadComponent('Flash');
+
+		$this->log('Controller::initialize', 'info', 'exec');
+	}
+
+	/**
+	 * @return void
+	 */
+	public function beforeFilter(Event $event) {
+		$this->log('Controller::beforeFilter', 'info', 'exec');
+	}
+
+	/**
+	 * @return void
+	 */
+	public function beforeRender(Event $event) {
+		$this->log('Controller::beforeRender', 'info', 'exec');
+	}
+
+	/**
+	 * @return void
+	 */
+	public function afterFilter(Event $event) {
+		$this->log('Controller::afterFilter', 'info', 'exec');
+	}
+
 }

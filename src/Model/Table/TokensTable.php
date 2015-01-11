@@ -6,6 +6,8 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use Cake\Log\Log;
+use Cake\Event\Event;
+use Cake\ORM\Entity;
 
 /**
  * Tokens Model
@@ -21,7 +23,7 @@ class TokensTable extends Table
      */
     public function initialize(array $config)
     {
-    	Log::write(LOG_DEBUG, 'TokensTable:initialize');
+    	Log::write('info', 'TokensTable:initialize', 'exec');
 
         $this->table('tokens');
         $this->displayField('key');
@@ -39,7 +41,7 @@ class TokensTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
-		Log::write(LOG_DEBUG, 'TokensTable:validationDefault');
+		Log::write('info', 'TokensTable:validationDefault', 'exec');
 
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
@@ -69,10 +71,38 @@ class TokensTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    public function buildRules(RulesChecker $rules)
-    {
-		Log::write(LOG_DEBUG, 'TokensTable:buildRules');
-        $rules->add($rules->existsIn(['user_id'], 'Users'));
-        return $rules;
-    }
+	public function buildRules(RulesChecker $rules) {
+		Log::write('info', 'TokensTable:buildRules', 'exec');
+		$rules->add($rules->existsIn(['user_id'], 'Users'));
+		return $rules;
+	}
+
+	public function buildValidator(Event $event, Validator $validator, $name) {
+		Log::write('info', 'TokensTable:buildValidator', 'exec');
+	}
+
+	public function beforeRules(Event $event, Entity $entity, \ArrayObject $options, $operation) {
+		Log::write('info', 'TokensTable:beforeRules', 'exec');
+	}
+
+	public function afterRules(Event $event, Entity $entity, $result, $operation) {
+		Log::write('info', 'TokensTable:afterRules', 'exec');
+	}
+
+	public function beforeSave(Event $event, Entity $entity, \ArrayObject $options) {
+		Log::write('info', 'TokensTable:beforeSave', 'exec');
+	}
+
+	public function afterSave(Event $event, Entity $entity, \ArrayObject $options) {
+		Log::write('info', 'TokensTable:afterSave', 'exec');
+	}
+
+	public function beforeDelete(Event $event, Entity $entity, \ArrayObject $options) {
+		Log::write('info', 'TokensTable:beforeDelete', 'exec');
+	}
+
+	public function afterDelete(Event $event, Entity $entity, \ArrayObject $options) {
+		Log::write('info', 'TokensTable:afterDelete', 'exec');
+	}
+
 }

@@ -1,4 +1,8 @@
 <?php
+use Cake\Log\Log;
+
+Log::write('info', 'config/routes', 'exec');
+
 /**
  * Routes configuration
  *

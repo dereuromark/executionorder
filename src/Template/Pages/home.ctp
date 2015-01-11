@@ -39,12 +39,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('cake.css') ?>
 </head>
 <body class="home">
-    <header>
-        <div class="header-image">
-            <?= $this->Html->image('http://cakephp.org/img/cake-logo.png') ?>
-            <h1>Get the Ovens Ready</h1>
-        </div>
-    </header>
+	<h1>Execution Order Test</h1>
+    <div style="padding: 20px;">
+        <div>
+					<?php echo $this->Html->link('Basic Execution Order Test', array('controller' => 'Tokens', 'action' => 'index'));?>
+				</div>
+    </div>
     <div id="content">
         <?php
         if (Configure::read('debug')):

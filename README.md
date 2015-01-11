@@ -7,6 +7,10 @@ order one expects them to.
 
 This is an unstable repository and should be treated as an alpha.
 
+## Results
+
+See [RESULTS.md](RESULTS.md).
+
 ## Installation
 
 Download and run "composer update".

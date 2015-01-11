@@ -15,8 +15,63 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class TokensController extends AppController {
 
+	public $components = array('Foo');
+
 	/**
-	 * @return void|\Cake\Network\Response
+	 * TokensController::index()
+	 *
+	 * @return void
+	 */
+	public function index() {
+		$this->log('Controller.action', 'info', 'exec');
+
+		$this->helpers[] = 'Foo';
+	}
+
+	/**
+	 * TokensController::model()
+	 *
+	 * @return void
+	 */
+	public function model() {
+		$this->log('Controller.action', 'info', 'exec');
+		$token = $this->Tokens->newEntity();
+		$token = $this->Tokens->patchEntity($token, ['type' => 'x', 'key' => 'x', 'content' => 'foo', 'used' => 0, 'unlimited' => 0]);
+
+		$result = $this->Tokens->save($token);
+		if (!$result) {
+			throw new \Exception('Save failed');
+		}
+	}
+
+	/**
+	 * TokensController::model()
+	 *
+	 * @return void
+	 */
+	public function model_no_validation() {
+		$this->log('Controller.action', 'info', 'exec');
+		$token = $this->Tokens->newEntity();
+		$token = $this->Tokens->patchEntity($token, ['foo' => 'bar'], ['validate' => false]);
+
+		$result = $this->Tokens->save($token);
+		if (!$result) {
+			throw new \Exception('Save failed');
+		}
+	}
+
+	/**
+	 * TokensController::index()
+	 *
+	 * @return void
+	 */
+	public function redirecting() {
+		$this->log('Controller.action', 'info', 'exec');
+		return $this->redirect(['action' => 'index']);
+	}
+
+	/**
+	 * @return void
 	 */
 	public function add() {
 		$token = $this->Tokens->newEntity();
@@ -34,7 +89,7 @@ class TokensController extends AppController {
 	}
 
 	/**
-	 * @return void|\Cake\Network\Response
+	 * @return void
 	 */
 	public function edit($id = null) {
 		$token = $this->Tokens->get($id);
