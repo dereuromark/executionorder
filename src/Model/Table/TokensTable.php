@@ -15,62 +15,62 @@ use Cake\ORM\Entity;
 class TokensTable extends Table
 {
 
-    /**
-     * Initialize method
-     *
-     * @param array $config The configuration for the Table.
-     * @return void
-     */
-    public function initialize(array $config)
-    {
-    	Log::write('info', 'TokensTable:initialize', 'exec');
+	/**
+	 * Initialize method
+	 *
+	 * @param array $config The configuration for the Table.
+	 * @return void
+	 */
+	public function initialize(array $config)
+	{
+		Log::write('info', 'TokensTable:initialize', 'exec');
 
-        $this->table('tokens');
-        $this->displayField('key');
-        $this->primaryKey('id');
-        $this->addBehavior('Timestamp');
+		$this->table('tokens');
+		$this->displayField('key');
+		$this->primaryKey('id');
+		$this->addBehavior('Timestamp');
 
-    		$this->addBehavior('Alpha');
-    }
+			$this->addBehavior('Alpha');
+	}
 
-    /**
-     * Default validation rules.
-     *
-     * @param \Cake\Validation\Validator $validator instance
-     * @return \Cake\Validation\Validator
-     */
-    public function validationDefault(Validator $validator)
-    {
+	/**
+	 * Default validation rules.
+	 *
+	 * @param \Cake\Validation\Validator $validator instance
+	 * @return \Cake\Validation\Validator
+	 */
+	public function validationDefault(Validator $validator)
+	{
 		Log::write('info', 'TokensTable:validationDefault', 'exec');
 
-        $validator
-            ->add('id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('id', 'create')
-            ->add('user_id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('user_id')
-            ->requirePresence('type', 'create')
-            ->notEmpty('type')
-            ->requirePresence('key', 'create')
-            ->notEmpty('key')
-            ->requirePresence('content', 'create')
-            ->notEmpty('content')
-            ->add('used', 'valid', ['rule' => 'boolean'])
-            ->requirePresence('used', 'create')
-            ->notEmpty('used')
-            ->add('unlimited', 'valid', ['rule' => 'boolean'])
-            ->requirePresence('unlimited', 'create')
-            ->notEmpty('unlimited');
+		$validator
+			->add('id', 'valid', ['rule' => 'numeric'])
+			->allowEmpty('id', 'create')
+			->add('user_id', 'valid', ['rule' => 'numeric'])
+			->allowEmpty('user_id')
+			->requirePresence('type', 'create')
+			->notEmpty('type')
+			->requirePresence('key', 'create')
+			->notEmpty('key')
+			->requirePresence('content', 'create')
+			->notEmpty('content')
+			->add('used', 'valid', ['rule' => 'boolean'])
+			->requirePresence('used', 'create')
+			->notEmpty('used')
+			->add('unlimited', 'valid', ['rule' => 'boolean'])
+			->requirePresence('unlimited', 'create')
+			->notEmpty('unlimited');
 
-        return $validator;
-    }
+		return $validator;
+	}
 
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
+	/**
+	 * Returns a rules checker object that will be used for validating
+	 * application integrity.
+	 *
+	 * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+	 * @return \Cake\ORM\RulesChecker
+	 */
 	public function buildRules(RulesChecker $rules) {
 		Log::write('info', 'TokensTable:buildRules', 'exec');
 		$rules->add($rules->existsIn(['user_id'], 'Users'));
