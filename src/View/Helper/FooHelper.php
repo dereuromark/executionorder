@@ -13,7 +13,7 @@ class FooHelper extends Helper {
 
 	use LogTrait;
 
- 	/**
+	/**
 	 * @return void
 	 */
 	public function beforeRenderFile(Event $event, $viewFile) {

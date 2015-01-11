@@ -23,7 +23,7 @@ class FooComponent extends Component {
 		$this->log('FooComponent::startup', 'info', 'exec');
 	}
 
- 	/**
+	/**
 	 * @return void
 	 */
 	public function beforeFilter(Event $event) {
