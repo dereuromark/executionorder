@@ -92,7 +92,7 @@ Info: AlphaBehavior:afterSave
 Info: TokensTable:afterSave
 ...
 ```
-This shows that `initialize`, `validationDefault`, `buildValidator``and `buildRules` are only executed once, and then cached.
+This shows that `initialize`, `validationDefault`, `buildValidator` and `buildRules` are only executed once, and then cached.
 They should not be used for data modification.
 
 ## Redirecting
