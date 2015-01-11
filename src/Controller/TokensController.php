@@ -2,9 +2,7 @@
 
 namespace App\Controller;
 
-use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
-use Cake\View\Exception\MissingTemplateException;
 
 /**
  * Static content controller
@@ -26,6 +24,13 @@ class TokensController extends AppController {
 		$this->log('Controller.action', 'info', 'exec');
 
 		$this->helpers[] = 'Foo';
+	}
+
+	/**
+	 * @return void
+	 */
+	public function exception() {
+		throw new NotFoundException();
 	}
 
 	/**

@@ -144,3 +144,17 @@ Info: FooComponent::beforeRedirect
 Info: FooComponent::shutdown
 Info: Controller::afterFilter
 ```
+
+## Exception in controller action
+```
+Info: config/paths
+Info: config/bootstrap
+Info: config/routes
+Info: Controller::initialize
+Info: FooComponent::beforeFilter
+Info: Controller::beforeFilter
+Info: FooComponent::startup
+
+Info: AppView::initialize
+```
+It jumps directly to the View, no `shutdown` or `afterFilter` callbacks fired anymore.
