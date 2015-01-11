@@ -1,5 +1,7 @@
 <?php
 $config = [
+	'debug' => true,
+
 	'Datasources' => [
 		'default' => [
 			'database' => '',
