@@ -1,7 +1,7 @@
 /vendor/*
-/config/app.php
 /tmp/*
 /logs/*
+/plugins/
 /config/app_local.php
 /composer.lock
-/plugins/
+/phpunit.phar
