@@ -35,6 +35,7 @@ class TokensController extends AppController {
 	 */
 	public function model() {
 		$this->log('Controller.action', 'info', 'exec');
+
 		$token = $this->Tokens->newEntity();
 		$token = $this->Tokens->patchEntity($token, ['type' => 'x', 'key' => 'x', 'content' => 'foo', 'used' => 0, 'unlimited' => 0]);
 
@@ -51,8 +52,34 @@ class TokensController extends AppController {
 	 */
 	public function model_no_validation() {
 		$this->log('Controller.action', 'info', 'exec');
+
 		$token = $this->Tokens->newEntity();
 		$token = $this->Tokens->patchEntity($token, ['foo' => 'bar'], ['validate' => false]);
+
+		$result = $this->Tokens->save($token);
+		if (!$result) {
+			throw new \Exception('Save failed');
+		}
+	}
+
+	/**
+	 * TokensController::model()
+	 *
+	 * @return void
+	 */
+	public function model_multi_save() {
+		$this->log('Controller.action', 'info', 'exec');
+
+		$token = $this->Tokens->newEntity();
+		$token = $this->Tokens->patchEntity($token, ['type' => 'x', 'key' => 'x', 'content' => 'foo', 'used' => 0, 'unlimited' => 0]);
+
+		$result = $this->Tokens->save($token);
+		if (!$result) {
+			throw new \Exception('Save failed');
+		}
+
+		$token = $this->Tokens->newEntity();
+		$token = $this->Tokens->patchEntity($token, ['type' => 'x', 'key' => 'x', 'content' => 'foo', 'used' => 0, 'unlimited' => 0]);
 
 		$result = $this->Tokens->save($token);
 		if (!$result) {
@@ -67,6 +94,7 @@ class TokensController extends AppController {
 	 */
 	public function redirecting() {
 		$this->log('Controller.action', 'info', 'exec');
+
 		return $this->redirect(['action' => 'index']);
 	}
 
