@@ -27,10 +27,6 @@ $config = [
 		],
 	],
 
-	'Config' => array(
-		'adminEmail' => '' // Set in app_local.php
-	),
-
 	'FormConfig' => array(
 		'novalidate' => true,
 		'templates' => array(
