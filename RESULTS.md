@@ -24,6 +24,7 @@ Info: FooHelper::afterLayout
 Info: FooComponent::shutdown
 Info: Controller::afterFilter
 ```
+Note that component callbacks are usually called first.
 
 ## Model validate + save
 ```
@@ -55,6 +56,8 @@ Info: AppView::initialize
 Info: FooComponent::shutdown
 Info: Controller::afterFilter
 ```
+Note that behavior callbacks are usually called first.
+Exceptions are `initialize` and `buildRules` since those are not event listeners.
 
 ## Redirecting
 ```
