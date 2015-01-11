@@ -25,7 +25,7 @@ Info: FooComponent::shutdown
 Info: Controller::afterFilter
 ```
 
-## Model validte + save
+## Model validate + save
 ```
 Info: config/paths
 Info: config/bootstrap
