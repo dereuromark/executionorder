@@ -4,24 +4,23 @@ use Phinx\Migration\AbstractMigration;
 
 class Init extends AbstractMigration {
 
-    /**
-     * Change Method.
-     *
-     * More information on this method is available here:
-     * http://docs.phinx.org/en/latest/migrations.html#the-change-method
-     *
-     * Uncomment this method if you would like to use it.
-     *
-    public function change()
-    {
-    }
-    */
+	/**
+	 * Change Method.
+	 *
+	 * More information on this method is available here:
+	 * http://docs.phinx.org/en/latest/migrations.html#the-change-method
+	 *
+	 * Uncomment this method if you would like to use it.
+	 *
+	public function change() {
+	}
+	*/
 
-    /**
-     * Migrate Up.
-     */
-    public function up() {
-			$this->execute("CREATE TABLE IF NOT EXISTS `tokens` (
+	/**
+	 * Migrate Up.
+	 */
+	public function up() {
+		$this->execute("CREATE TABLE IF NOT EXISTS `tokens` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) DEFAULT NULL,
   `type` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -34,12 +33,13 @@ class Init extends AbstractMigration {
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;");
-    }
+	}
 
-    /**
-     * Migrate Down.
-     */
-    public function down() {
-			$this->execute('DROP table tokens');
-    }
+	/**
+	 * Migrate Down.
+	 */
+	public function down() {
+		$this->execute('DROP table tokens');
+	}
+
 }
