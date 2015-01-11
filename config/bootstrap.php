@@ -68,6 +68,7 @@ try {
     die($e->getMessage() . "\n");
 }
 
+Configure::load('app_custom');
 Configure::load('app_local');
 
 // Load an environment local configuration file.
