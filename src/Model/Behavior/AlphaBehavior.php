@@ -24,6 +24,10 @@ class AlphaBehavior extends Behavior {
 	 */
 	protected $_defaultConfig = [];
 
+	public function beforeMarshal(Event $event, \ArrayObject $data, $options) {
+		Log::write('info', 'AlphaBehavior:beforeMarshal', 'exec');
+	}
+
 	public function buildRules(Event $event, RulesChecker $rules) {
 		Log::write('info', 'AlphaBehavior:buildRules', 'exec');
 	}
