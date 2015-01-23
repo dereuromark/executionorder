@@ -24,7 +24,7 @@ class AlphaBehavior extends Behavior {
 	 */
 	protected $_defaultConfig = [];
 
-	public function beforeMarshal(Event $event, \ArrayObject $data, $options) {
+	public function beforeMarshal(Event $event, \ArrayObject $data, \ArrayObject $options) {
 		Log::write('info', 'AlphaBehavior:beforeMarshal', 'exec');
 	}
 

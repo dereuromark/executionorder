@@ -30,7 +30,7 @@ class TokensTable extends Table {
 		$this->addBehavior('Alpha');
 	}
 
-	public function beforeMarshal(Event $event, \ArrayObject $data, $options) {
+	public function beforeMarshal(Event $event, \ArrayObject $data, \ArrayObject $options) {
 		Log::write('info', 'TokensTable:beforeMarshal', 'exec');
 	}
 
