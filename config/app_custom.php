@@ -27,11 +27,20 @@ $config = [
 		],
 	],
 
-	'FormConfig' => array(
+	'FormConfig' => [
 		'novalidate' => true,
-		'templates' => array(
+		'templates' => [
 			'dateWidget' => '{{day}}{{month}}{{year}}{{hour}}{{minute}}{{second}}{{meridian}}',
-		)
-	)
+		]
+	],
+
+	'Log' => [
+		'debug' => [
+			'scopes' => false,
+		],
+		'error' => [
+			'scopes' => false,
+		],
+	],
 
 ];
