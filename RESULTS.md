@@ -1,6 +1,6 @@
 # Executionorder - Results
 
-## Basic action + component + helper
+## Basic action + component + helper + cell
 ```
 config/paths
 config/bootstrap
@@ -16,6 +16,7 @@ Controller::beforeRender
 AppView::initialize
 FooHelper::beforeRender
 FooHelper::beforeRenderFile
+InboxCell.action
 FooHelper::afterRenderFile
 FooHelper::afterRender
 FooHelper::beforeLayout
