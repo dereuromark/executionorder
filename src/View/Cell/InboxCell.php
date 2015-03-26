@@ -4,11 +4,14 @@ namespace App\View\Cell;
 use Cake\Log\Log;
 use Cake\View\Cell;
 
-class InboxCell extends Cell
-{
+class InboxCell extends Cell {
 
-	public function display()
-	{
+	/**
+	 * InboxCell::display()
+	 *
+	 * @return void
+	 */
+	public function display() {
 		Log::write('info', 'InboxCell.action', 'exec');
 	}
 
