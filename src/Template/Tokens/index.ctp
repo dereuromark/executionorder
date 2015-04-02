@@ -5,7 +5,7 @@
 	</ul>
 </div>
 
-<?php $this->cell('Inbox::display'); ?>
+<?php echo $this->cell('Inbox::display'); ?>
 
 <div>
 <?php echo $this->element('info'); ?>

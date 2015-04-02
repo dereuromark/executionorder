@@ -39,15 +39,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<div style="padding: 20px;">
 		<div>
 			<ul>
-				<li><?php echo $this->Html->link('Basic Execution Order Test', array('controller' => 'Tokens', 'action' => 'index'));?></li>
+				<li><?php echo $this->Html->link('Basic Execution Order Test', ['controller' => 'Tokens', 'action' => 'index']);?></li>
 
-				<li><?php echo $this->Html->link('Model Execution Order Test', array('controller' => 'Tokens', 'action' => 'model'));?></li>
-				<li><?php echo $this->Html->link('Model: Saving multiple entities', array('controller' => 'Tokens', 'action' => 'model_multi_save'));?></li>
-				<li><?php echo $this->Html->link('Model: Saving without validation', array('controller' => 'Tokens', 'action' => 'model_no_validation'));?></li>
-				<li><?php echo $this->Html->link('Model: Saving without validation and without rules', array('controller' => 'Tokens', 'action' => 'model_no_validation_no_rules'));?></li>
+				<li><?php echo $this->Html->link('Model Execution Order Test', ['controller' => 'Tokens', 'action' => 'model']);?></li>
+				<li><?php echo $this->Html->link('Model: Saving multiple entities', ['controller' => 'Tokens', 'action' => 'model_multi_save']);?></li>
+				<li><?php echo $this->Html->link('Model: Saving without validation', ['controller' => 'Tokens', 'action' => 'model_no_validation']);?></li>
+				<li><?php echo $this->Html->link('Model: Saving without validation and without rules', ['controller' => 'Tokens', 'action' => 'model_no_validation_no_rules']);?></li>
 
-				<li><?php echo $this->Html->link('Redirecting', array('controller' => 'Tokens', 'action' => 'redirecting'));?></li>
-				<li><?php echo $this->Html->link('Exceptions', array('controller' => 'Tokens', 'action' => 'exception'));?></li>
+				<li><?php echo $this->Html->link('Redirecting', ['controller' => 'Tokens', 'action' => 'redirecting']);?></li>
+				<li><?php echo $this->Html->link('Exceptions', ['controller' => 'Tokens', 'action' => 'exception']);?></li>
 			</ul>
 		</div>
 	</div>
