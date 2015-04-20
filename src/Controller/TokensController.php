@@ -13,7 +13,7 @@ use Cake\Network\Exception\NotFoundException;
  */
 class TokensController extends AppController {
 
-	public $components = array('Foo');
+	public $components = ['Foo'];
 
 	/**
 	 * TokensController::index()
