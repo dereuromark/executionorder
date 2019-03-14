@@ -16,7 +16,16 @@ Controller::beforeRender
 AppView::initialize
 FooHelper::beforeRender
 FooHelper::beforeRenderFile
+
 InboxCell.action
+AppView::initialize
+FooHelper::beforeRender
+FooHelper::beforeRenderFile
+FooHelper::afterRenderFile
+FooHelper::afterRender
+FooHelper::beforeRenderFile
+FooHelper::afterRenderFile
+
 FooHelper::afterRenderFile
 FooHelper::afterRender
 FooHelper::beforeLayout
@@ -47,6 +56,7 @@ TokensTable:beforeMarshal
 
 TokensTable:validationDefault
 AlphaBehavior:buildValidator
+TokensTable:buildValidator
 TokensTable:buildRules
 AlphaBehavior:buildRules
 
@@ -78,6 +88,7 @@ TokensTable:beforeMarshal
 
 TokensTable:validationDefault
 AlphaBehavior:buildValidator
+TokensTable:buildValidator
 TokensTable:buildRules
 AlphaBehavior:buildRules
 
@@ -191,6 +202,6 @@ Shell::__construct (to disable logging)
 Shell::initialize
 Shell::startup
 Shell::command
-Shell::_stop
+Shell::abort
 ```
-Note that _stop() can't be used as "shutdown" method, as it is only invoked on error(), not on normal shutdown.
+Note that `abort()` can't be used as "shutdown" method, as it is only invoked in error case, not on normal shutdown.
