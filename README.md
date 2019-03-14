@@ -15,21 +15,26 @@ See [RESULTS.md](RESULTS.md).
 
 ## Installation
 
-Download and run "composer update".
+Download and run `composer update`.
 
 You should now be able to visit the path to where you installed the app and see
 the setup traffic lights.
+
+For CLI to work you might have to run `chmod +x bin/cake`, as well.
 
 ## Configuration and Usage
 
 Create `config/app_local.php` from the default template and setup the 'Datasources' and any other
 configuration relevant for your application.
-Run the `cake Migrations migrate` command to have a basic test table (tokens).
+
+Run the `cake migrations migrate` command to have a basic test table (tokens).
 
 Then run it and see the logs output.
+To build an updated RESULTS.md file, execute `bin/cake exec prep` after each run to build a TMP/exec.txt from the log output.
 
 ## Version notice
-This is only for CakePHP 3.0+. For earlier versions please see [dereuromark.de/2013/01/22/cakephp-tips](http://www.dereuromark.de/2013/01/22/cakephp-tips/#dispatcher-execution-order).
+This is only for CakePHP 3.0+ (currently 3.7). 
+For earlier versions please see [dereuromark.de/2013/01/22/cakephp-tips](http://www.dereuromark.de/2013/01/22/cakephp-tips/#dispatcher-execution-order).
 
 ## Contributing
 

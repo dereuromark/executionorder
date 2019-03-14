@@ -1,5 +1,5 @@
 <?php
-$config = [
+return [
 	/**
 	 * Debug Level:
 	 *
@@ -138,7 +138,7 @@ $config = [
 	 *   E.g.: `'skipLog' => ['Cake\Network\Exception\NotFoundException', 'Cake\Network\Exception\UnauthorizedException']`
 	 */
 	'Error' => [
-		'errorLevel' => E_ALL & ~E_DEPRECATED,
+		'errorLevel' => E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED,
 		'exceptionRenderer' => 'Cake\Error\ExceptionRenderer',
 		'skipLog' => [],
 		'log' => true,
@@ -283,7 +283,6 @@ $config = [
 	],
 
 	/**
-	 *
 	 * Session configuration.
 	 *
 	 * Contains an array of settings to use for session configuration. The

@@ -18,6 +18,8 @@ class Init extends AbstractMigration {
 
 	/**
 	 * Migrate Up.
+	 *
+	 * @return void
 	 */
 	public function up() {
 		$this->execute("CREATE TABLE IF NOT EXISTS `tokens` (
@@ -37,6 +39,8 @@ class Init extends AbstractMigration {
 
 	/**
 	 * Migrate Down.
+	 *
+	 * @return void
 	 */
 	public function down() {
 		$this->execute('DROP table tokens');

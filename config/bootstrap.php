@@ -40,7 +40,6 @@ if (!extension_loaded('intl')) {
 
 use Cake\Cache\Cache;
 use Cake\Console\ConsoleErrorHandler;
-use Cake\Core\App;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
 use Cake\Core\Plugin;
@@ -50,7 +49,6 @@ use Cake\Log\Log;
 use Cake\Network\Email\Email;
 use Cake\Network\Request;
 use Cake\Routing\DispatcherFactory;
-use Cake\Utility\Inflector;
 use Cake\Utility\Security;
 
 /**
@@ -65,7 +63,7 @@ try {
 	Configure::config('default', new PhpConfig());
 	Configure::load('app', 'default', false);
 } catch (\Exception $e) {
-	die($e->getMessage() . "\n");
+	exit($e->getMessage() . "\n");
 }
 
 Configure::load('app_custom');
@@ -104,7 +102,7 @@ ini_set('intl.default_locale', 'en_US');
 /**
  * Register application error and exception handlers.
  */
-$isCli = php_sapi_name() === 'cli';
+$isCli = PHP_SAPI === 'cli';
 if ($isCli) {
 	(new ConsoleErrorHandler(Configure::consume('Error')))->register();
 } else {
@@ -180,7 +178,6 @@ Request::addDetector('tablet', function ($request) {
  *
  * Plugin::loadAll(); // Loads all plugins at once
  * Plugin::load('DebugKit'); //Loads a single plugin named DebugKit
- *
  */
 
 Plugin::load('Migrations');

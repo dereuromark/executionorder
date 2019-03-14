@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-use Cake\Network\Exception\NotFoundException;
+use Cake\Http\Exception\NotFoundException;
+use Exception;
 
 /**
  * Static content controller
@@ -13,6 +14,9 @@ use Cake\Network\Exception\NotFoundException;
  */
 class TokensController extends AppController {
 
+	/**
+	 * @var array
+	 */
 	public $components = ['Foo'];
 
 	/**
@@ -28,15 +32,15 @@ class TokensController extends AppController {
 
 	/**
 	 * @return void
+	 * @throws \Cake\Http\Exception\NotFoundException
 	 */
 	public function exception() {
 		throw new NotFoundException();
 	}
 
 	/**
-	 * TokensController::model()
-	 *
 	 * @return void
+	 * @throws \Exception
 	 */
 	public function model() {
 		$this->log('Controller.action', 'info', 'exec');
@@ -46,14 +50,13 @@ class TokensController extends AppController {
 
 		$result = $this->Tokens->save($token);
 		if (!$result) {
-			throw new \Exception('Save failed');
+			throw new Exception('Save failed');
 		}
 	}
 
 	/**
-	 * TokensController::model()
-	 *
 	 * @return void
+	 * @throws \Exception
 	 */
 	public function modelNoValidation() {
 		$this->log('Controller.action', 'info', 'exec');
@@ -63,14 +66,13 @@ class TokensController extends AppController {
 
 		$result = $this->Tokens->save($token);
 		if (!$result) {
-			throw new \Exception('Save failed');
+			throw new Exception('Save failed');
 		}
 	}
 
 	/**
-	 * TokensController::model()
-	 *
 	 * @return void
+	 * @throws \Exception
 	 */
 	public function modelNoValidationNoRules() {
 		$this->log('Controller.action', 'info', 'exec');
@@ -80,14 +82,13 @@ class TokensController extends AppController {
 
 		$result = $this->Tokens->save($token, ['checkRules' => false]);
 		if (!$result) {
-			throw new \Exception('Save failed');
+			throw new Exception('Save failed');
 		}
 	}
 
 	/**
-	 * TokensController::model()
-	 *
 	 * @return void
+	 * @throws \Exception
 	 */
 	public function modelMultiSave() {
 		$this->log('Controller.action', 'info', 'exec');
@@ -97,7 +98,7 @@ class TokensController extends AppController {
 
 		$result = $this->Tokens->save($token);
 		if (!$result) {
-			throw new \Exception('Save failed');
+			throw new Exception('Save failed');
 		}
 
 		$token = $this->Tokens->newEntity();
@@ -105,14 +106,12 @@ class TokensController extends AppController {
 
 		$result = $this->Tokens->save($token);
 		if (!$result) {
-			throw new \Exception('Save failed');
+			throw new Exception('Save failed');
 		}
 	}
 
 	/**
-	 * TokensController::index()
-	 *
-	 * @return void
+	 * @return \Cake\Http\Response|null
 	 */
 	public function redirecting() {
 		$this->log('Controller.action', 'info', 'exec');
@@ -121,37 +120,38 @@ class TokensController extends AppController {
 	}
 
 	/**
-	 * @return void
+	 * @return \Cake\Http\Response|null
 	 */
 	public function add() {
 		$token = $this->Tokens->newEntity();
 
 		if ($this->request->is('post')) {
-			$token = $this->Tokens->patchEntity($token, $this->request->data);
+			$token = $this->Tokens->patchEntity($token, $this->request->getData());
 			if ($this->Tokens->save($token)) {
-				$this->Flash->success("Wonderful");
+				$this->Flash->success('Wonderful');
 				return $this->redirect(['action' => 'add']);
-			} else {
-				$this->Flash->error("Bad luck!");
 			}
+
+			$this->Flash->error('Bad luck!');
 		}
 		$this->set(compact('token'));
 	}
 
 	/**
-	 * @return void
+	 * @param int|null $id
+	 * @return \Cake\Http\Response|null
 	 */
 	public function edit($id = null) {
 		$token = $this->Tokens->get($id);
 
 		if ($this->request->is('put')) {
-			$token = $this->Tokens->patchEntity($token, $this->request->data);
+			$token = $this->Tokens->patchEntity($token, $this->request->getData());
 			if ($this->Tokens->save($token)) {
-				$this->Flash->success("Wonderful");
+				$this->Flash->success('Wonderful');
 				return $this->redirect(['action' => 'edit']);
-			} else {
-				$this->Flash->error("Bad luck!");
 			}
+
+			$this->Flash->error('Bad luck!');
 		}
 		$this->set(compact('token'));
 	}

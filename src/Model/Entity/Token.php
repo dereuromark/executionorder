@@ -3,9 +3,6 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 
-/**
- * Token Entity.
- */
 class Token extends Entity {
 
 	/**

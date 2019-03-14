@@ -14,6 +14,8 @@ class FooHelper extends Helper {
 	use LogTrait;
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param string $viewFile
 	 * @return void
 	 */
 	public function beforeRenderFile(Event $event, $viewFile) {
@@ -21,6 +23,9 @@ class FooHelper extends Helper {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param string $viewFile
+	 * @param string $content
 	 * @return void
 	 */
 	public function afterRenderFile(Event $event, $viewFile, $content) {
@@ -28,6 +33,8 @@ class FooHelper extends Helper {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param string $viewFile
 	 * @return void
 	 */
 	public function beforeRender(Event $event, $viewFile) {
@@ -35,6 +42,8 @@ class FooHelper extends Helper {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param string $viewFile
 	 * @return void
 	 */
 	public function afterRender(Event $event, $viewFile) {
@@ -42,6 +51,8 @@ class FooHelper extends Helper {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param string $layoutFile
 	 * @return void
 	 */
 	public function beforeLayout(Event $event, $layoutFile) {
@@ -49,6 +60,8 @@ class FooHelper extends Helper {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param string $layoutFile
 	 * @return void
 	 */
 	public function afterLayout(Event $event, $layoutFile) {

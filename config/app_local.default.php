@@ -1,13 +1,15 @@
 <?php
-$config = [
+return [
 	'debug' => true,
 
 	'Datasources' => [
 		'default' => [
 			'database' => '',
+			'password' => '',
 		],
 		'test' => [
 			'database' => '',
+			'password' => '',
 		],
 	],
 ];

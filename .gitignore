@@ -4,4 +4,7 @@
 /plugins/
 /config/app_local.php
 /composer.lock
+/composer.phar
 /phpunit.phar
+/.idea/*
+/config/Migrations/schema-dump-default.lock

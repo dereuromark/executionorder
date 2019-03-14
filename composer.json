@@ -5,33 +5,31 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": ">=5.4.16",
-        "cakephp/cakephp": "~3.0",
-        "mobiledetect/mobiledetectlib": "2.*",
-        "cakephp/migrations": "dev-master",
+        "php": ">=5.6",
+        "cakephp/cakephp": "^3.7",
+        "cakephp/migrations": "@stable",
         "cakephp/plugin-installer": "*"
     },
     "require-dev": {
-        "d11wtq/boris": "1.0.*",
-        "cakephp/debug_kit": "3.0.*-dev",
-        "cakephp/bake": "dev-master"
+        "cakephp/debug_kit": "@stable",
+        "fig-r/psr2r-sniffer": "dev-master"
     },
     "suggest": {
-        "phpunit/phpunit": "Allows automated tests to be run without system-wide install.",
-        "cakephp/cakephp-codesniffer": "Allows to check the code against the coding standards used in CakePHP."
+        "phpunit/phpunit": "Allows automated tests to be run without system-wide install."
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src"
+            "App\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Test\\": "tests",
-            "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
+            "App\\Test\\": "tests/"
         }
     },
     "scripts": {
+        "cs-check": "phpcs -p --standard=vendor/fig-r/psr2r-sniffer/PSR2R/ruleset.xml --ignore=/config/Migrations/ --extensions=php src/ tests/ config/ webroot/",
+        "cs-fix": "phpcbf --standard=vendor/fig-r/psr2r-sniffer/PSR2R/ruleset.xml --ignore=/config/Migrations/ --extensions=php src/ tests/ config/ webroot/",
         "post-install-cmd": "App\\Console\\Installer::postInstall",
         "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
     },

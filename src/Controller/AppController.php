@@ -28,6 +28,7 @@ class AppController extends Controller {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
 	 * @return void
 	 */
 	public function beforeFilter(Event $event) {
@@ -35,6 +36,7 @@ class AppController extends Controller {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
 	 * @return void
 	 */
 	public function beforeRender(Event $event) {
@@ -42,6 +44,7 @@ class AppController extends Controller {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
 	 * @return void
 	 */
 	public function afterFilter(Event $event) {
@@ -49,7 +52,9 @@ class AppController extends Controller {
 	}
 
 	/**
-	 * @return void
+	 * @param array|string $url
+	 * @param int|null $status
+	 * @return \Cake\Http\Response|null
 	 */
 	public function redirect($url, $status = null) {
 		$this->log('Controller::redirect', 'info', 'exec');

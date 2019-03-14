@@ -4,7 +4,7 @@ namespace App\Controller\Component;
 
 use Cake\Controller\Component;
 use Cake\Event\Event;
-use Cake\Network\Response;
+use Cake\Http\Response;
 
 /**
  * Application Controller
@@ -17,6 +17,7 @@ use Cake\Network\Response;
 class FooComponent extends Component {
 
 	/**
+	 * @param \Cake\Event\Event $event
 	 * @return void
 	 */
 	public function startup(Event $event) {
@@ -24,6 +25,7 @@ class FooComponent extends Component {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
 	 * @return void
 	 */
 	public function beforeFilter(Event $event) {
@@ -34,6 +36,7 @@ class FooComponent extends Component {
 	 * Called after the Controller::beforeRender(), after the view class is loaded, and before the
 	 * Controller::render()
 	 *
+	 * @param \Cake\Event\Event $event
 	 * @return void
 	 */
 	public function beforeRender(Event $event) {
@@ -41,6 +44,7 @@ class FooComponent extends Component {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
 	 * @return void
 	 */
 	public function shutdown(Event $event) {
@@ -48,6 +52,9 @@ class FooComponent extends Component {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param array|string $url
+	 * @param \Cake\Http\Response $response
 	 * @return void
 	 */
 	public function beforeRedirect(Event $event, $url, Response $response) {
