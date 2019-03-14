@@ -14,5 +14,9 @@ before_script:
 script:
   - composer cs-check
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 notifications:
   email: false
