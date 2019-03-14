@@ -14,24 +14,25 @@ FooComponent::beforeRender
 Controller::beforeRender
 
 AppView::initialize
-FooHelper::beforeRender
-FooHelper::beforeRenderFile
+FooHelper::beforeRender (src/Template/Tokens/index.ctp)
+FooHelper::beforeRenderFile (src/Template/Tokens/index.ctp)
 
 InboxCell.action
 AppView::initialize
-FooHelper::beforeRender
-FooHelper::beforeRenderFile
-FooHelper::afterRenderFile
-FooHelper::afterRender
-FooHelper::beforeRenderFile
-FooHelper::afterRenderFile
+FooHelper::beforeRender (src/Template/Cell/Inbox/display.ctp)
+FooHelper::beforeRenderFile (src/Template/Cell/Inbox/display.ctp)
+FooHelper::afterRenderFile (src/Template/Cell/Inbox/display.ctp)
+FooHelper::afterRender (src/Template/Cell/Inbox/display.ctp)
 
-FooHelper::afterRenderFile
-FooHelper::afterRender
-FooHelper::beforeLayout
-FooHelper::beforeRenderFile
-FooHelper::afterRenderFile
-FooHelper::afterLayout
+FooHelper::beforeRenderFile (src/Template/Element/info.ctp)
+FooHelper::afterRenderFile (src/Template/Element/info.ctp)
+FooHelper::afterRenderFile (src/Template/Tokens/index.ctp)
+FooHelper::afterRender (src/Template/Tokens/index.ctp)
+
+FooHelper::beforeLayout (src/Template/Layout/default.ctp)
+FooHelper::beforeRenderFile (src/Template/Layout/default.ctp)
+FooHelper::afterRenderFile (src/Template/Layout/default.ctp)
+FooHelper::afterLayout (src/Template/Layout/default.ctp)
 
 FooComponent::shutdown
 Controller::afterFilter

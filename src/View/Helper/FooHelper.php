@@ -19,7 +19,8 @@ class FooHelper extends Helper {
 	 * @return void
 	 */
 	public function beforeRenderFile(Event $event, $viewFile) {
-		$this->log('FooHelper::beforeRenderFile', 'info', 'exec');
+		$viewFile = str_replace(ROOT . DS, '', $viewFile);
+		$this->log('FooHelper::beforeRenderFile (' . $viewFile . ')', 'info', 'exec');
 	}
 
 	/**
@@ -29,7 +30,8 @@ class FooHelper extends Helper {
 	 * @return void
 	 */
 	public function afterRenderFile(Event $event, $viewFile, $content) {
-		$this->log('FooHelper::afterRenderFile', 'info', 'exec');
+		$viewFile = str_replace(ROOT . DS, '', $viewFile);
+		$this->log('FooHelper::afterRenderFile (' . $viewFile . ')', 'info', 'exec');
 	}
 
 	/**
@@ -38,7 +40,8 @@ class FooHelper extends Helper {
 	 * @return void
 	 */
 	public function beforeRender(Event $event, $viewFile) {
-		$this->log('FooHelper::beforeRender', 'info', 'exec');
+		$viewFile = str_replace(ROOT . DS, '', $viewFile);
+		$this->log('FooHelper::beforeRender (' . $viewFile . ')', 'info', 'exec');
 	}
 
 	/**
@@ -47,7 +50,8 @@ class FooHelper extends Helper {
 	 * @return void
 	 */
 	public function afterRender(Event $event, $viewFile) {
-		$this->log('FooHelper::afterRender', 'info', 'exec');
+		$viewFile = str_replace(ROOT . DS, '', $viewFile);
+		$this->log('FooHelper::afterRender (' . $viewFile . ')', 'info', 'exec');
 	}
 
 	/**
@@ -56,7 +60,8 @@ class FooHelper extends Helper {
 	 * @return void
 	 */
 	public function beforeLayout(Event $event, $layoutFile) {
-		$this->log('FooHelper::beforeLayout', 'info', 'exec');
+		$layoutFile = str_replace(ROOT . DS, '', $layoutFile);
+		$this->log('FooHelper::beforeLayout (' . $layoutFile . ')', 'info', 'exec');
 	}
 
 	/**
@@ -65,7 +70,8 @@ class FooHelper extends Helper {
 	 * @return void
 	 */
 	public function afterLayout(Event $event, $layoutFile) {
-		$this->log('FooHelper::afterLayout', 'info', 'exec');
+		$layoutFile = str_replace(ROOT . DS, '', $layoutFile);
+		$this->log('FooHelper::afterLayout (' . $layoutFile . ')', 'info', 'exec');
 	}
 
 }

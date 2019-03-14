@@ -1,1 +1,1 @@
-See `TMP . 'exec.log'` for details.
+See `ROOT/logs/exec.log'` for details.
