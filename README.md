@@ -1,6 +1,6 @@
 # Execution order in CakePHP
 [![License](https://poser.pugx.org/cakephp/app/license.svg)](https://packagist.org/packages/cakephp/app)
-[![Minimum PHP Version](http://img.shields.io/badge/php-%3E%3D%205.4-8892BF.svg)](https://php.net/)
+[![Minimum PHP Version](http://img.shields.io/badge/php-%3E%3D%205.6-8892BF.svg)](https://php.net/)
 [![Coding Standards](https://img.shields.io/badge/cs-PSR--2--R-yellow.svg)](https://github.com/php-fig-rectified/fig-rectified-standards)
 
 A demo app to **display execution order of files and callbacks in a CakePHP 3 app**.
@@ -33,10 +33,11 @@ Then run it and see the logs output.
 To build an updated RESULTS.md file, execute `bin/cake exec prep` after each run to build a TMP/exec.txt from the log output.
 
 ## Version notice
-This is only for CakePHP 3.0+ (currently 3.7). 
+This branch is only for CakePHP 3 (currently 3.7). 
 For earlier versions please see [dereuromark.de/2013/01/22/cakephp-tips](http://www.dereuromark.de/2013/01/22/cakephp-tips/#dispatcher-execution-order).
+
+Feel free to open a 4.x version, I can prepare a 4.x branch for this then.
 
 ## Contributing
 
 Feel free to add more stuff to it.
-
