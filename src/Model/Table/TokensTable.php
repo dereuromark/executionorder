@@ -83,30 +83,51 @@ class TokensTable extends Table {
 		return $rules;
 	}
 
+	/**
+	 * @return void
+	 */
 	public function buildValidator(Event $event, Validator $validator, $name) {
 		Log::write('info', 'TokensTable:buildValidator', 'exec');
 	}
 
+	/**
+	 * @return void
+	 */
 	public function beforeRules(Event $event, Entity $entity, ArrayObject $options, $operation) {
 		Log::write('info', 'TokensTable:beforeRules', 'exec');
 	}
 
+	/**
+	 * @return void
+	 */
 	public function afterRules(Event $event, Entity $entity, $result, $operation) {
 		Log::write('info', 'TokensTable:afterRules', 'exec');
 	}
 
+	/**
+	 * @return void
+	 */
 	public function beforeSave(Event $event, Entity $entity, ArrayObject $options) {
 		Log::write('info', 'TokensTable:beforeSave', 'exec');
 	}
 
+	/**
+	 * @return void
+	 */
 	public function afterSave(Event $event, Entity $entity, ArrayObject $options) {
 		Log::write('info', 'TokensTable:afterSave', 'exec');
 	}
 
+	/**
+	 * @return void
+	 */
 	public function beforeDelete(Event $event, Entity $entity, ArrayObject $options) {
 		Log::write('info', 'TokensTable:beforeDelete', 'exec');
 	}
 
+	/**
+	 * @return void
+	 */
 	public function afterDelete(Event $event, Entity $entity, ArrayObject $options) {
 		Log::write('info', 'TokensTable:afterDelete', 'exec');
 	}
