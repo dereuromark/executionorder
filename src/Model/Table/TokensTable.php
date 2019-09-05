@@ -84,6 +84,9 @@ class TokensTable extends Table {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param \Cake\Validation\Validator $validator
+	 * @param string $name
 	 * @return void
 	 */
 	public function buildValidator(Event $event, Validator $validator, $name) {
@@ -91,6 +94,10 @@ class TokensTable extends Table {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param \Cake\ORM\Entity $entity
+	 * @param \ArrayObject $options
+	 * @param string $operation
 	 * @return void
 	 */
 	public function beforeRules(Event $event, Entity $entity, ArrayObject $options, $operation) {
@@ -98,6 +105,10 @@ class TokensTable extends Table {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param \Cake\ORM\Entity $entity
+	 * @param array $result
+	 * @param string $operation
 	 * @return void
 	 */
 	public function afterRules(Event $event, Entity $entity, $result, $operation) {
@@ -105,6 +116,9 @@ class TokensTable extends Table {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param \Cake\ORM\Entity $entity
+	 * @param \ArrayObject $options
 	 * @return void
 	 */
 	public function beforeSave(Event $event, Entity $entity, ArrayObject $options) {
@@ -112,6 +126,9 @@ class TokensTable extends Table {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param \Cake\ORM\Entity $entity
+	 * @param \ArrayObject $options
 	 * @return void
 	 */
 	public function afterSave(Event $event, Entity $entity, ArrayObject $options) {
@@ -119,6 +136,9 @@ class TokensTable extends Table {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param \Cake\ORM\Entity $entity
+	 * @param \ArrayObject $options
 	 * @return void
 	 */
 	public function beforeDelete(Event $event, Entity $entity, ArrayObject $options) {
@@ -126,6 +146,9 @@ class TokensTable extends Table {
 	}
 
 	/**
+	 * @param \Cake\Event\Event $event
+	 * @param \Cake\ORM\Entity $entity
+	 * @param \ArrayObject $options
 	 * @return void
 	 */
 	public function afterDelete(Event $event, Entity $entity, ArrayObject $options) {

@@ -7,15 +7,12 @@
     "require": {
         "php": ">=5.6",
         "cakephp/cakephp": "^3.7",
-        "cakephp/migrations": "@stable",
+        "cakephp/migrations": "^2.2",
         "cakephp/plugin-installer": "*"
     },
     "require-dev": {
         "cakephp/debug_kit": "@stable",
         "fig-r/psr2r-sniffer": "dev-master"
-    },
-    "suggest": {
-        "phpunit/phpunit": "Allows automated tests to be run without system-wide install."
     },
     "autoload": {
         "psr-4": {
