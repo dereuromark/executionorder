@@ -16,7 +16,7 @@ class TokensTableTest extends TestCase {
 	 */
 	public $fixtures = [
 		'Tokens' => 'app.tokens',
-		'Users' => 'app.users'
+		'Users' => 'app.users',
 	];
 
 	/**

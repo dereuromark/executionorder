@@ -30,7 +30,7 @@ class TokensFixture extends TestFixture {
 			'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
 		],
 		'_options' => [
-'engine' => 'MyISAM', 'collation' => 'utf8_unicode_ci'
+'engine' => 'MyISAM', 'collation' => 'utf8_unicode_ci',
 		],
 	];
 
@@ -49,7 +49,7 @@ class TokensFixture extends TestFixture {
 			'used' => 1,
 			'unlimited' => 1,
 			'created' => '2015-01-05 22:33:30',
-			'modified' => '2015-01-05 22:33:30'
+			'modified' => '2015-01-05 22:33:30',
 		],
 	];
 
