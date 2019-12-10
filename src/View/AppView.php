@@ -1,4 +1,5 @@
 <?php
+
 namespace App\View;
 
 use Cake\Log\Log;

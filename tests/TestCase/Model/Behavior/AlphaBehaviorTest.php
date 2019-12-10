@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Test\TestCase\Model\Behavior;
 
 use App\Model\Behavior\AlphaBehavior;
