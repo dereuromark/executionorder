@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
@@ -14,6 +14,7 @@ declare(strict_types=1);
  * @since     0.2.9
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App\Controller;
 
 use Cake\Core\Configure;
@@ -29,47 +30,47 @@ use Cake\View\Exception\MissingTemplateException;
  *
  * @link https://book.cakephp.org/4/en/controllers/pages-controller.html
  */
-class PagesController extends AppController
-{
-    /**
-     * Displays a view
-     *
-     * @param array ...$path Path segments.
-     * @return \Cake\Http\Response|null
-     * @throws \Cake\Http\Exception\ForbiddenException When a directory traversal attempt.
-     * @throws \Cake\View\Exception\MissingTemplateException When the view file could not
-     *   be found and in debug mode.
-     * @throws \Cake\Http\Exception\NotFoundException When the view file could not
-     *   be found and not in debug mode.
-     * @throws \Cake\View\Exception\MissingTemplateException In debug mode.
-     */
-    public function display(...$path): ?Response
-    {
-        if (!$path) {
-            return $this->redirect('/');
-        }
-        if (in_array('..', $path, true) || in_array('.', $path, true)) {
-            throw new ForbiddenException();
-        }
-        $page = $subpage = null;
+class PagesController extends AppController {
 
-        if (!empty($path[0])) {
-            $page = $path[0];
-        }
-        if (!empty($path[1])) {
-            $subpage = $path[1];
-        }
-        $this->set(compact('page', 'subpage'));
+	/**
+	 * Displays a view
+	 *
+	 * @param array ...$path Path segments.
+	 * @return \Cake\Http\Response|null
+	 * @throws \Cake\Http\Exception\ForbiddenException When a directory traversal attempt.
+	 * @throws \Cake\View\Exception\MissingTemplateException When the view file could not
+	 *   be found and in debug mode.
+	 * @throws \Cake\Http\Exception\NotFoundException When the view file could not
+	 *   be found and not in debug mode.
+	 * @throws \Cake\View\Exception\MissingTemplateException In debug mode.
+	 */
+	public function display(...$path): ?Response {
+		if (!$path) {
+			return $this->redirect('/');
+		}
+		if (in_array('..', $path, true) || in_array('.', $path, true)) {
+			throw new ForbiddenException();
+		}
+		$page = $subpage = null;
 
-        try {
-            return $this->render(implode('/', $path));
-        } catch (MissingTemplateException $exception) {
-            if (Configure::read('debug')) {
-                throw $exception;
-            }
-            throw new NotFoundException();
-        }
+		if (!empty($path[0])) {
+			$page = $path[0];
+		}
+		if (!empty($path[1])) {
+			$subpage = $path[1];
+		}
+		$this->set(compact('page', 'subpage'));
 
-        return $this->render();
-    }
+		try {
+			return $this->render(implode('/', $path));
+		} catch (MissingTemplateException $exception) {
+			if (Configure::read('debug')) {
+				throw $exception;
+			}
+			throw new NotFoundException();
+		}
+
+		return $this->render();
+	}
+
 }

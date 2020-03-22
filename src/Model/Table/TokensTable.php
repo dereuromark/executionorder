@@ -40,6 +40,16 @@ class TokensTable extends Table {
 	}
 
 	/**
+	 * @param \Cake\Event\EventInterface $event
+	 * @param \Cake\ORM\Entity $entity
+	 * @param \ArrayObject $options
+	 * @return void
+	 */
+	public function afterMarshal(EventInterface $event, Entity $entity, ArrayObject $options) {
+		Log::write('info', 'TokensTable:afterMarshal', 'exec');
+	}
+
+	/**
 	 * Default validation rules.
 	 *
 	 * @param \Cake\Validation\Validator $validator instance

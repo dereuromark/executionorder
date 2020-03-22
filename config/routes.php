@@ -22,8 +22,8 @@
  */
 
 use Cake\Log\Log;
-use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\RouteBuilder;
+use Cake\Routing\Route\DashedRoute;
 
 Log::write('info', 'config/routes', 'exec');
 
@@ -44,24 +44,26 @@ Log::write('info', 'config/routes', 'exec');
  * inconsistently cased URLs when used with `:plugin`, `:controller` and
  * `:action` markers.
  */
-/** @var \Cake\Routing\RouteBuilder $routes */
+/**
+ * @var \Cake\Routing\RouteBuilder $routes
+ */
 $routes->setRouteClass(DashedRoute::class);
 
 $routes->scope('/', function (RouteBuilder $builder) {
 
-    /*
+	/*
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, templates/Pages/home.php)...
      */
-    $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+	$builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
-    /*
+	/*
      * ...and connect the rest of 'Pages' controller's URLs.
      */
-    $builder->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+	$builder->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
-    /*
+	/*
      * Connect catchall routes for all controllers.
      *
      * The `fallbacks` method is a shortcut for
@@ -74,7 +76,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
-    $builder->fallbacks();
+	$builder->fallbacks();
 });
 
 /*

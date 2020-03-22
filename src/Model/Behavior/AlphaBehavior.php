@@ -42,6 +42,16 @@ class AlphaBehavior extends Behavior {
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
+	 * @param \Cake\ORM\Entity $entity
+	 * @param \ArrayObject $options
+	 * @return void
+	 */
+	public function afterMarshal(EventInterface $event, Entity $entity, ArrayObject $options) {
+		Log::write('info', 'AlphaBehavior:afterMarshal', 'exec');
+	}
+
+	/**
+	 * @param \Cake\Event\EventInterface $event
 	 * @param \Cake\ORM\RulesChecker $rules
 	 * @return void
 	 */
