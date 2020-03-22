@@ -3,9 +3,9 @@
 namespace App\Model\Table;
 
 use ArrayObject;
+use Cake\Datasource\EntityInterface;
 use Cake\Event\EventInterface;
 use Cake\Log\Log;
-use Cake\ORM\Entity;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -41,11 +41,11 @@ class TokensTable extends Table {
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\ORM\Entity $entity
+	 * @param \Cake\Datasource\EntityInterface $entity
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
-	public function afterMarshal(EventInterface $event, Entity $entity, ArrayObject $options) {
+	public function afterMarshal(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
 		Log::write('info', 'TokensTable:afterMarshal', 'exec');
 	}
 
@@ -106,63 +106,63 @@ class TokensTable extends Table {
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\ORM\Entity $entity
+	 * @param \Cake\Datasource\EntityInterface $entity
 	 * @param \ArrayObject $options
 	 * @param string $operation
 	 * @return void
 	 */
-	public function beforeRules(EventInterface $event, Entity $entity, ArrayObject $options, $operation) {
+	public function beforeRules(EventInterface $event, EntityInterface $entity, ArrayObject $options, $operation) {
 		Log::write('info', 'TokensTable:beforeRules', 'exec');
 	}
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\ORM\Entity $entity
+	 * @param \Cake\Datasource\EntityInterface $entity
 	 * @param array $result
 	 * @param string $operation
 	 * @return void
 	 */
-	public function afterRules(EventInterface $event, Entity $entity, $result, $operation) {
+	public function afterRules(EventInterface $event, EntityInterface $entity, $result, $operation) {
 		Log::write('info', 'TokensTable:afterRules', 'exec');
 	}
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\ORM\Entity $entity
+	 * @param \Cake\Datasource\EntityInterface $entity
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
-	public function beforeSave(EventInterface $event, Entity $entity, ArrayObject $options) {
+	public function beforeSave(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
 		Log::write('info', 'TokensTable:beforeSave', 'exec');
 	}
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\ORM\Entity $entity
+	 * @param \Cake\Datasource\EntityInterface $entity
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
-	public function afterSave(EventInterface $event, Entity $entity, ArrayObject $options) {
+	public function afterSave(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
 		Log::write('info', 'TokensTable:afterSave', 'exec');
 	}
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\ORM\Entity $entity
+	 * @param \Cake\Datasource\EntityInterface $entity
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
-	public function beforeDelete(EventInterface $event, Entity $entity, ArrayObject $options) {
+	public function beforeDelete(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
 		Log::write('info', 'TokensTable:beforeDelete', 'exec');
 	}
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\ORM\Entity $entity
+	 * @param \Cake\Datasource\EntityInterface $entity
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
-	public function afterDelete(EventInterface $event, Entity $entity, ArrayObject $options) {
+	public function afterDelete(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
 		Log::write('info', 'TokensTable:afterDelete', 'exec');
 	}
 

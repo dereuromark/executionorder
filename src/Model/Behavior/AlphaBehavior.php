@@ -3,10 +3,10 @@
 namespace App\Model\Behavior;
 
 use ArrayObject;
+use Cake\Datasource\EntityInterface;
 use Cake\Event\EventInterface;
 use Cake\Log\Log;
 use Cake\ORM\Behavior;
-use Cake\ORM\Entity;
 use Cake\ORM\RulesChecker;
 use Cake\Validation\Validator;
 
@@ -42,11 +42,11 @@ class AlphaBehavior extends Behavior {
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\ORM\Entity $entity
+	 * @param \Cake\Datasource\EntityInterface
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
-	public function afterMarshal(EventInterface $event, Entity $entity, ArrayObject $options) {
+	public function afterMarshal(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
 		Log::write('info', 'AlphaBehavior:afterMarshal', 'exec');
 	}
 
@@ -71,43 +71,43 @@ class AlphaBehavior extends Behavior {
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\ORM\Entity $entity
+	 * @param \Cake\Datasource\EntityInterface
 	 * @param \ArrayObject $options
 	 * @param string $operation
 	 * @return void
 	 */
-	public function beforeRules(EventInterface $event, Entity $entity, ArrayObject $options, $operation) {
+	public function beforeRules(EventInterface $event, EntityInterface $entity, ArrayObject $options, $operation) {
 		Log::write('info', 'AlphaBehavior:beforeRules', 'exec');
 	}
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\ORM\Entity $entity
+	 * @param \Cake\Datasource\EntityInterface
 	 * @param array $result
 	 * @param string $operation
 	 * @return void
 	 */
-	public function afterRules(EventInterface $event, Entity $entity, $result, $operation) {
+	public function afterRules(EventInterface $event, EntityInterface $entity, $result, $operation) {
 		Log::write('info', 'AlphaBehavior:afterRules', 'exec');
 	}
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\ORM\Entity $entity
+	 * @param \Cake\Datasource\EntityInterface
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
-	public function beforeSave(EventInterface $event, Entity $entity, ArrayObject $options) {
+	public function beforeSave(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
 		Log::write('info', 'AlphaBehavior:beforeSave', 'exec');
 	}
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\ORM\Entity $entity
+	 * @param \Cake\Datasource\EntityInterface
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
-	public function afterSave(EventInterface $event, Entity $entity, ArrayObject $options) {
+	public function afterSave(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
 		Log::write('info', 'AlphaBehavior:afterSave', 'exec');
 	}
 
