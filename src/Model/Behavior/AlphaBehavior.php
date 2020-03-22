@@ -42,7 +42,7 @@ class AlphaBehavior extends Behavior {
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\Datasource\EntityInterface
+	 * @param \Cake\Datasource\EntityInterface $entity
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
@@ -71,7 +71,7 @@ class AlphaBehavior extends Behavior {
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\Datasource\EntityInterface
+	 * @param \Cake\Datasource\EntityInterface $entity
 	 * @param \ArrayObject $options
 	 * @param string $operation
 	 * @return void
@@ -82,7 +82,7 @@ class AlphaBehavior extends Behavior {
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\Datasource\EntityInterface
+	 * @param \Cake\Datasource\EntityInterface $entity
 	 * @param array $result
 	 * @param string $operation
 	 * @return void
@@ -93,7 +93,7 @@ class AlphaBehavior extends Behavior {
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\Datasource\EntityInterface
+	 * @param \Cake\Datasource\EntityInterface $entity
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
@@ -103,7 +103,7 @@ class AlphaBehavior extends Behavior {
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
-	 * @param \Cake\Datasource\EntityInterface
+	 * @param \Cake\Datasource\EntityInterface $entity
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
