@@ -31,7 +31,7 @@ class TokensFixture extends TestFixture {
 			'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
 		],
 		'_options' => [
-'engine' => 'MyISAM', 'collation' => 'utf8_unicode_ci',
+			'engine' => 'MyISAM', 'collation' => 'utf8_unicode_ci',
 		],
 	];
 
@@ -42,7 +42,6 @@ class TokensFixture extends TestFixture {
 	 */
 	public $records = [
 		[
-			'id' => 1,
 			'user_id' => 1,
 			'type' => 'Lorem ip',
 			'key' => 'Lorem ipsum dolor sit amet',

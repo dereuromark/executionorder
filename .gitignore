@@ -8,3 +8,4 @@
 /phpunit.phar
 /.idea/*
 /config/Migrations/schema-dump-default.lock
+.phpunit.result.cache

@@ -1,6 +1,7 @@
 <?php
-use Cake\Core\Plugin;
 use Cake\Log\Log;
+use Cake\Routing\Route\DashedRoute;
+use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
 
 Log::write('info', 'config/routes', 'exec');
@@ -22,9 +23,9 @@ Log::write('info', 'config/routes', 'exec');
  * inconsistently cased URLs when used with `:plugin`, `:controller` and
  * `:action` markers.
  */
-Router::defaultRouteClass('DashedRoute');
+Router::defaultRouteClass(DashedRoute::class);
 
-Router::scope('/', function ($routes) {
+Router::scope('/', function (RouteBuilder $routes) {
 	/**
 	 * Here, we are connecting '/' (base path) to a controller called 'Pages',
 	 * its action called 'display', and we pass a param to select the view file
@@ -55,9 +56,3 @@ Router::scope('/', function ($routes) {
 	 */
 	$routes->fallbacks();
 });
-
-/**
- * Load all plugin routes.  See the Plugin documentation on
- * how to customize the loading of plugin routes.
- */
-Plugin::routes();
