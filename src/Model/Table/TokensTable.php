@@ -18,7 +18,7 @@ class TokensTable extends Table {
 	 * @param array $config The configuration for the Table.
 	 * @return void
 	 */
-	public function initialize(array $config) {
+	public function initialize(array $config): void {
 		Log::write('info', 'TokensTable:initialize', 'exec');
 
 		$this->setTable('tokens');
@@ -45,7 +45,7 @@ class TokensTable extends Table {
 	 * @param \Cake\Validation\Validator $validator instance
 	 * @return \Cake\Validation\Validator
 	 */
-	public function validationDefault(Validator $validator) {
+	public function validationDefault(Validator $validator): Validator {
 		Log::write('info', 'TokensTable:validationDefault', 'exec');
 
 		$validator
@@ -76,7 +76,7 @@ class TokensTable extends Table {
 	 * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
 	 * @return \Cake\ORM\RulesChecker
 	 */
-	public function buildRules(RulesChecker $rules) {
+	public function buildRules(RulesChecker $rules): RulesChecker {
 		Log::write('info', 'TokensTable:buildRules', 'exec');
 
 		//$rules->add($rules->existsIn(['user_id'], 'Users'));

@@ -15,9 +15,13 @@ use Exception;
 class TokensController extends AppController {
 
 	/**
-	 * @var array
+	 * @return void
 	 */
-	public $components = ['Foo'];
+	public function initialize(): void {
+		parent::initialize();
+
+		$this->loadComponent('Foo');
+	}
 
 	/**
 	 * TokensController::index()
@@ -27,7 +31,7 @@ class TokensController extends AppController {
 	public function index() {
 		$this->log('Controller.action', 'info', 'exec');
 
-		$this->helpers[] = 'Foo';
+		$this->viewBuilder()->setHelpers(['Foo']);
 	}
 
 	/**
@@ -45,7 +49,7 @@ class TokensController extends AppController {
 	public function model() {
 		$this->log('Controller.action', 'info', 'exec');
 
-		$token = $this->Tokens->newEntity();
+		$token = $this->Tokens->newEmptyEntity();
 		$token = $this->Tokens->patchEntity($token, ['type' => 'x', 'key' => 'x', 'content' => 'foo', 'used' => 0, 'unlimited' => 0]);
 
 		$result = $this->Tokens->save($token);
@@ -61,7 +65,7 @@ class TokensController extends AppController {
 	public function modelNoValidation() {
 		$this->log('Controller.action', 'info', 'exec');
 
-		$token = $this->Tokens->newEntity();
+		$token = $this->Tokens->newEmptyEntity();
 		$token = $this->Tokens->patchEntity($token, ['foo' => 'bar'], ['validate' => false]);
 
 		$result = $this->Tokens->save($token);
@@ -77,7 +81,7 @@ class TokensController extends AppController {
 	public function modelNoValidationNoRules() {
 		$this->log('Controller.action', 'info', 'exec');
 
-		$token = $this->Tokens->newEntity();
+		$token = $this->Tokens->newEmptyEntity();
 		$token = $this->Tokens->patchEntity($token, ['foo' => 'bar'], ['validate' => false]);
 
 		$result = $this->Tokens->save($token, ['checkRules' => false]);
@@ -93,7 +97,7 @@ class TokensController extends AppController {
 	public function modelMultiSave() {
 		$this->log('Controller.action', 'info', 'exec');
 
-		$token = $this->Tokens->newEntity();
+		$token = $this->Tokens->newEmptyEntity();
 		$token = $this->Tokens->patchEntity($token, ['type' => 'x', 'key' => 'x', 'content' => 'foo', 'used' => 0, 'unlimited' => 0]);
 
 		$result = $this->Tokens->save($token);
@@ -101,7 +105,7 @@ class TokensController extends AppController {
 			throw new Exception('Save failed');
 		}
 
-		$token = $this->Tokens->newEntity();
+		$token = $this->Tokens->newEmptyEntity();
 		$token = $this->Tokens->patchEntity($token, ['type' => 'x', 'key' => 'x', 'content' => 'foo', 'used' => 0, 'unlimited' => 0]);
 
 		$result = $this->Tokens->save($token);
@@ -123,7 +127,7 @@ class TokensController extends AppController {
 	 * @return \Cake\Http\Response|null
 	 */
 	public function add() {
-		$token = $this->Tokens->newEntity();
+		$token = $this->Tokens->newEmptyEntity();
 
 		if ($this->request->is('post')) {
 			$token = $this->Tokens->patchEntity($token, $this->request->getData());

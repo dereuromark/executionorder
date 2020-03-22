@@ -216,7 +216,7 @@ ServerRequest::addDetector('tablet', function ($request) {
 //Inflector::rules('uninflected', ['dontinflectme']);
 //Inflector::rules('transliteration', ['/å/' => 'aa']);
 
-Log::config('exec', [
+Log::setConfig('exec', [
 	'className' => 'Cake\Log\Engine\FileLog',
 	'path' => LOGS,
 	'levels' => [],
