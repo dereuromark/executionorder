@@ -15,7 +15,7 @@ class AlphaBehaviorTest extends TestCase {
 	 *
 	 * @return void
 	 */
-	public function setUp() {
+	public function setUp(): void {
 		parent::setUp();
 		$this->Alpha = new AlphaBehavior();
 	}
@@ -25,19 +25,10 @@ class AlphaBehaviorTest extends TestCase {
 	 *
 	 * @return void
 	 */
-	public function tearDown() {
+	public function tearDown(): void {
 		unset($this->Alpha);
 
 		parent::tearDown();
-	}
-
-	/**
-	 * Test initial setup
-	 *
-	 * @return void
-	 */
-	public function testInitialization() {
-		$this->markTestIncomplete('Not implemented yet.');
 	}
 
 }

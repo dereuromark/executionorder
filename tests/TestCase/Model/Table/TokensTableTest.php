@@ -25,7 +25,7 @@ class TokensTableTest extends TestCase {
 	 *
 	 * @return void
 	 */
-	public function setUp() {
+	public function setUp(): void {
 		parent::setUp();
 		$config = TableRegistry::exists('Tokens') ? [] : ['className' => 'App\Model\Table\TokensTable'];
 		$this->Tokens = TableRegistry::get('Tokens', $config);
@@ -36,37 +36,10 @@ class TokensTableTest extends TestCase {
 	 *
 	 * @return void
 	 */
-	public function tearDown() {
+	public function tearDown(): void {
 		unset($this->Tokens);
 
 		parent::tearDown();
-	}
-
-	/**
-	 * Test initialize method
-	 *
-	 * @return void
-	 */
-	public function testInitialize() {
-		$this->markTestIncomplete('Not implemented yet.');
-	}
-
-	/**
-	 * Test validationDefault method
-	 *
-	 * @return void
-	 */
-	public function testValidationDefault() {
-		$this->markTestIncomplete('Not implemented yet.');
-	}
-
-	/**
-	 * Test buildRules method
-	 *
-	 * @return void
-	 */
-	public function testBuildRules() {
-		$this->markTestIncomplete('Not implemented yet.');
 	}
 
 }

@@ -17,8 +17,6 @@ use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 
-$this->layout = false;
-
 $cakeDescription = 'CakePHP execution app';
 ?>
 <!DOCTYPE html>
@@ -103,7 +101,7 @@ $cakeDescription = 'CakePHP execution app';
 					<p class="problem">Your logs directory is NOT writable.</p>
 				<?php endif; ?>
 
-				<?php $settings = Cache::config('_cake_core_'); ?>
+				<?php $settings = Cache::getConfig('_cake_core_'); ?>
 				<?php if (!empty($settings)): ?>
 					<p class="success">The <em><?= $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</p>
 				<?php else: ?>
