@@ -46,7 +46,7 @@ class AlphaBehavior extends Behavior {
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
-	public function afterMarshal(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
+	public function afterMarshal(EventInterface $event, EntityInterface $entity) {
 		Log::write('info', 'AlphaBehavior:afterMarshal', 'exec');
 	}
 

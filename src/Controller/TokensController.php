@@ -62,6 +62,21 @@ class TokensController extends AppController {
 	 * @return void
 	 * @throws \Exception
 	 */
+	public function modelPatch() {
+		$this->log('Controller.action', 'info', 'exec');
+
+		$token = $this->Tokens->newEmptyEntity();
+		$token = $this->Tokens->patchEntity($token, ['type' => 'x', 'key' => 'x', 'content' => 'foo', 'used' => 0, 'unlimited' => 0]);
+		if ($token->getErrors()) {
+			dd($token);
+			throw new Exception('Patch failed');
+		}
+	}
+
+	/**
+	 * @return void
+	 * @throws \Exception
+	 */
 	public function modelNoValidation() {
 		$this->log('Controller.action', 'info', 'exec');
 
