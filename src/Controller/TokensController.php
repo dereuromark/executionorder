@@ -68,8 +68,7 @@ class TokensController extends AppController {
 		$token = $this->Tokens->newEmptyEntity();
 		$token = $this->Tokens->patchEntity($token, ['type' => 'x', 'key' => 'x', 'content' => 'foo', 'used' => 0, 'unlimited' => 0]);
 		if ($token->getErrors()) {
-			dd($token);
-			throw new Exception('Patch failed');
+			throw new Exception('Patch failed: ' . print_r($token->getErrors(), true));
 		}
 	}
 
@@ -85,7 +84,7 @@ class TokensController extends AppController {
 
 		$result = $this->Tokens->save($token);
 		if (!$result) {
-			throw new Exception('Save failed');
+			throw new Exception('Save failed: ' . print_r($token->getErrors(), true));
 		}
 	}
 
