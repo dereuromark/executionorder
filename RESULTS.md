@@ -18,20 +18,20 @@ FooHelper::beforeRenderFile (templates/Tokens/index.php)
 
 InboxCell.action
 AppView::initialize
-FooHelper::beforeRender (templates/Cell/Inbox/display.php)
-FooHelper::beforeRenderFile (templates/Cell/Inbox/display.php)
-FooHelper::afterRenderFile (templates/Cell/Inbox/display.php)
-FooHelper::afterRender (templates/Cell/Inbox/display.php)
+FooHelper::beforeRender (templates/cell/Inbox/display.php)
+FooHelper::beforeRenderFile (templates/cell/Inbox/display.php)
+FooHelper::afterRenderFile (templates/cell/Inbox/display.php)
+FooHelper::afterRender (templates/cell/Inbox/display.php)
 
-FooHelper::beforeRenderFile (templates/Element/info.php)
-FooHelper::afterRenderFile (templates/Element/info.php)
+FooHelper::beforeRenderFile (templates/element/info.php)
+FooHelper::afterRenderFile (templates/element/info.php)
 FooHelper::afterRenderFile (templates/Tokens/index.php)
 FooHelper::afterRender (templates/Tokens/index.php)
 
-FooHelper::beforeLayout (templates/Layout/default.php)
-FooHelper::beforeRenderFile (templates/Layout/default.php)
-FooHelper::afterRenderFile (templates/Layout/default.php)
-FooHelper::afterLayout (templates/Layout/default.php)
+FooHelper::beforeLayout (templates/layout/default.php)
+FooHelper::beforeRenderFile (templates/layout/default.php)
+FooHelper::afterRenderFile (templates/layout/default.php)
+FooHelper::afterLayout (templates/layout/default.php)
 
 FooComponent::shutdown
 Controller::afterFilter
