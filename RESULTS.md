@@ -62,7 +62,7 @@ FooComponent::beforeRender
 Controller::beforeRender
 FooComponent::shutdown
 Controller::afterFilter
-
+```
 
 
 ## Model validate + save
