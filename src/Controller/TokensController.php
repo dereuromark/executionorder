@@ -10,7 +10,7 @@ use Exception;
  *
  * This controller will render views from Template/Pages/
  *
- * @link http://book.cakephp.org/3.0/en/controllers/pages-controller.html
+ * @property \App\Model\Table\TokensTable $Tokens
  */
 class TokensController extends AppController {
 
@@ -56,6 +56,27 @@ class TokensController extends AppController {
 		if (!$result) {
 			throw new Exception('Save failed');
 		}
+	}
+
+	/**
+	 * @return void
+	 * @throws \Exception
+	 */
+	public function modelDynamically() {
+		$this->log('Controller.action', 'info', 'exec');
+
+		$this->Tokens->removeBehavior('Alpha');
+		$this->Tokens->addBehavior('Alpha');
+
+		$token = $this->Tokens->newEmptyEntity();
+		$token = $this->Tokens->patchEntity($token, ['type' => 'x', 'key' => 'x', 'content' => 'foo', 'used' => 0, 'unlimited' => 0]);
+
+		$result = $this->Tokens->save($token);
+		if (!$result) {
+			throw new Exception('Save failed');
+		}
+
+		$this->render('model');
 	}
 
 	/**

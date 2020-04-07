@@ -2,7 +2,6 @@
 
 ## Basic action + component + helper + cell
 ```
-config/paths
 config/bootstrap
 config/routes
 Controller::initialize
@@ -14,34 +13,33 @@ FooComponent::beforeRender
 Controller::beforeRender
 
 AppView::initialize
-FooHelper::beforeRender (src/Template/Tokens/index.ctp)
-FooHelper::beforeRenderFile (src/Template/Tokens/index.ctp)
+FooHelper::beforeRender (templates/Tokens/index.php)
+FooHelper::beforeRenderFile (templates/Tokens/index.php)
 
 InboxCell.action
 AppView::initialize
-FooHelper::beforeRender (src/Template/Cell/Inbox/display.ctp)
-FooHelper::beforeRenderFile (src/Template/Cell/Inbox/display.ctp)
-FooHelper::afterRenderFile (src/Template/Cell/Inbox/display.ctp)
-FooHelper::afterRender (src/Template/Cell/Inbox/display.ctp)
+FooHelper::beforeRender (templates/Cell/Inbox/display.php)
+FooHelper::beforeRenderFile (templates/Cell/Inbox/display.php)
+FooHelper::afterRenderFile (templates/Cell/Inbox/display.php)
+FooHelper::afterRender (templates/Cell/Inbox/display.php)
 
-FooHelper::beforeRenderFile (src/Template/Element/info.ctp)
-FooHelper::afterRenderFile (src/Template/Element/info.ctp)
-FooHelper::afterRenderFile (src/Template/Tokens/index.ctp)
-FooHelper::afterRender (src/Template/Tokens/index.ctp)
+FooHelper::beforeRenderFile (templates/Element/info.php)
+FooHelper::afterRenderFile (templates/Element/info.php)
+FooHelper::afterRenderFile (templates/Tokens/index.php)
+FooHelper::afterRender (templates/Tokens/index.php)
 
-FooHelper::beforeLayout (src/Template/Layout/default.ctp)
-FooHelper::beforeRenderFile (src/Template/Layout/default.ctp)
-FooHelper::afterRenderFile (src/Template/Layout/default.ctp)
-FooHelper::afterLayout (src/Template/Layout/default.ctp)
+FooHelper::beforeLayout (templates/Layout/default.php)
+FooHelper::beforeRenderFile (templates/Layout/default.php)
+FooHelper::afterRenderFile (templates/Layout/default.php)
+FooHelper::afterLayout (templates/Layout/default.php)
 
 FooComponent::shutdown
 Controller::afterFilter
 ```
 Note that component callbacks are usually called first.
 
-## Model validate + save
+## Model marshal (patch/validate) only
 ```
-config/paths
 config/bootstrap
 config/routes
 Controller::initialize
@@ -50,25 +48,52 @@ Controller::beforeFilter
 FooComponent::startup
 Controller.action
 
-TokensTable:initialize
-AlphaBehavior:initialize
-AlphaBehavior:beforeMarshal
-TokensTable:beforeMarshal
+TokensTable::initialize
+AlphaBehavior::initialize
+AlphaBehavior::beforeMarshal
+TokensTable::beforeMarshal
+TokensTable::validationDefault
+AlphaBehavior::buildValidator
+TokensTable::buildValidator
+AlphaBehavior::afterMarshal
+TokensTable::afterMarshal
 
-TokensTable:validationDefault
-AlphaBehavior:buildValidator
-TokensTable:buildValidator
-TokensTable:buildRules
-AlphaBehavior:buildRules
+FooComponent::beforeRender
+Controller::beforeRender
+FooComponent::shutdown
+Controller::afterFilter
 
-AlphaBehavior:beforeRules
-TokensTable:beforeRules
-AlphaBehavior:afterRules
-TokensTable:afterRules
-AlphaBehavior:beforeSave
-TokensTable:beforeSave
-AlphaBehavior:afterSave
-TokensTable:afterSave
+
+
+## Model validate + save
+```
+config/bootstrap
+config/routes
+Controller::initialize
+FooComponent::beforeFilter
+Controller::beforeFilter
+FooComponent::startup
+Controller.action
+
+TokensTable::initialize
+AlphaBehavior::initialize
+AlphaBehavior::beforeMarshal
+TokensTable::beforeMarshal
+
+TokensTable::validationDefault
+AlphaBehavior::buildValidator
+TokensTable::buildValidator
+TokensTable::buildRules
+AlphaBehavior::buildRules
+
+AlphaBehavior::beforeRules
+TokensTable::beforeRules
+AlphaBehavior::afterRules
+TokensTable::afterRules
+AlphaBehavior::beforeSave
+TokensTable::beforeSave
+AlphaBehavior::afterSave
+TokensTable::afterSave
 
 FooComponent::beforeRender
 Controller::beforeRender
@@ -82,60 +107,67 @@ Exceptions are `initialize` and `buildRules` since those are not event listeners
 ## Model save multiple times
 ```
 ...
-TokensTable:initialize
-AlphaBehavior:initialize
-AlphaBehavior:beforeMarshal
-TokensTable:beforeMarshal
+TokensTable::initialize
+AlphaBehavior::initialize
+AlphaBehavior::beforeMarshal
+TokensTable::beforeMarshal
 
-TokensTable:validationDefault
-AlphaBehavior:buildValidator
-TokensTable:buildValidator
-TokensTable:buildRules
-AlphaBehavior:buildRules
+TokensTable::validationDefault
+AlphaBehavior::buildValidator
+TokensTable::buildValidator
+AlphaBehavior::afterMarshal
+TokensTable::afterMarshal
 
-AlphaBehavior:beforeRules
-TokensTable:beforeRules
-AlphaBehavior:afterRules
-TokensTable:afterRules
-AlphaBehavior:beforeSave
-TokensTable:beforeSave
-AlphaBehavior:afterSave
-TokensTable:afterSave
+TokensTable::buildRules
+AlphaBehavior::buildRules
 
-AlphaBehavior:beforeMarshal
-TokensTable:beforeMarshal
+AlphaBehavior::beforeRules
+TokensTable::beforeRules
+AlphaBehavior::afterRules
+TokensTable::afterRules
+AlphaBehavior::beforeSave
+TokensTable::beforeSave
+AlphaBehavior::afterSave
+TokensTable::afterSave
 
-AlphaBehavior:beforeRules
-TokensTable:beforeRules
-AlphaBehavior:afterRules
-TokensTable:afterRules
-AlphaBehavior:beforeSave
-TokensTable:beforeSave
-AlphaBehavior:afterSave
-TokensTable:afterSave
+AlphaBehavior::beforeMarshal
+TokensTable::beforeMarshal
+AlphaBehavior::afterMarshal
+TokensTable::afterMarshal
+
+AlphaBehavior::beforeRules
+TokensTable::beforeRules
+AlphaBehavior::afterRules
+TokensTable::afterRules
+AlphaBehavior::beforeSave
+TokensTable::beforeSave
+AlphaBehavior::afterSave
+TokensTable::afterSave
 ...
 ```
 This shows that `initialize`, `validationDefault`, `buildValidator` and `buildRules` are only executed once, and then cached.
-They should not be used for data modification. Instead use `beforeMarshal` if it should always be run - or if it
-only applies to saving, `beforeRules`.
+They should not be used for data modification. Instead use `beforeMarshal`/`afterMarshal` if it should always be run on patching level.
+Use `beforeRules` if it only applies to saving.
 
 ## Model save without validation
 ```
 ...
-TokensTable:initialize
-AlphaBehavior:initialize
-AlphaBehavior:beforeMarshal
-TokensTable:beforeMarshal
-TokensTable:buildRules
-AlphaBehavior:buildRules
-AlphaBehavior:beforeRules
-TokensTable:beforeRules
-AlphaBehavior:afterRules
-TokensTable:afterRules
-AlphaBehavior:beforeSave
-TokensTable:beforeSave
-AlphaBehavior:afterSave
-TokensTable:afterSave
+TokensTable::initialize
+AlphaBehavior::initialize
+AlphaBehavior::beforeMarshal
+TokensTable::beforeMarshal
+AlphaBehavior::afterMarshal
+TokensTable::afterMarshal
+TokensTable::buildRules
+AlphaBehavior::buildRules
+AlphaBehavior::beforeRules
+TokensTable::beforeRules
+AlphaBehavior::afterRules
+TokensTable::afterRules
+AlphaBehavior::beforeSave
+TokensTable::beforeSave
+AlphaBehavior::afterSave
+TokensTable::afterSave
 ...
 ```
 This shows that `validationDefault` and `buildValidator` are not executed in this case. Only the callbacks around the domain rules are.
@@ -143,19 +175,23 @@ This shows that `validationDefault` and `buildValidator` are not executed in thi
 ## Model save without validation and without rules
 ```
 ...
-TokensTable:initialize
-AlphaBehavior:initialize
-AlphaBehavior:beforeSave
-TokensTable:beforeSave
-AlphaBehavior:afterSave
-TokensTable:afterSave
+TokensTable::initialize
+AlphaBehavior::initialize
+AlphaBehavior::beforeMarshal
+TokensTable::beforeMarshal
+AlphaBehavior::afterMarshal
+TokensTable::afterMarshal
+AlphaBehavior::beforeSave
+TokensTable::beforeSave
+AlphaBehavior::afterSave
+TokensTable::afterSave
 ...
 ```
 In this case not even `buildRules` and the `beforeRules`/`afterRules` callbacks are triggered.
+But `beforeMarshal` and `afterMarshal` always, so be careful not to overuse them for validation, as you cannot circumvent them then.
 
 ## Redirecting
 ```
-config/paths
 config/bootstrap
 config/routes
 Controller::initialize
@@ -173,7 +209,6 @@ Controller::afterFilter
 
 ## Exception in controller action
 ```
-config/paths
 config/bootstrap
 config/routes
 Controller::initialize
@@ -185,9 +220,17 @@ AppView::initialize
 ```
 It jumps directly to the View, no `shutdown` or `afterFilter` callbacks fired anymore.
 
+## Basic command
+```
+config/bootstrap (default + cli one)
+Command::__construct
+Command::initialize
+Command::startup
+Command::execute
+```
+
 ## Basic shell command
 ```
-config/paths
 config/bootstrap (default + cli one)
 Shell::__construct
 Shell::initialize
@@ -197,7 +240,6 @@ Shell::command
 
 ## Basic shell command with error() call
 ```
-config/paths
 config/bootstrap (default + cli one)
 Shell::__construct (to disable logging)
 Shell::initialize

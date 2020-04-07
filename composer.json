@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.2",
-        "cakephp/cakephp": "dev-4.next-aftermarshal as 4.0",
+        "cakephp/cakephp": "dev-4.next as 4.0",
         "cakephp/plugin-installer": "*"
     },
     "require-dev": {

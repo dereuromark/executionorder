@@ -42,10 +42,11 @@ class TokensTable extends Table {
 	/**
 	 * @param \Cake\Event\EventInterface $event
 	 * @param \Cake\Datasource\EntityInterface $entity
+	 * @param \ArrayObject $data
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
-	public function afterMarshal(EventInterface $event, EntityInterface $entity) {
+	public function afterMarshal(EventInterface $event, EntityInterface $entity, ArrayObject $data, ArrayObject $options) {
 		Log::write('info', 'TokensTable:afterMarshal', 'exec');
 	}
 
