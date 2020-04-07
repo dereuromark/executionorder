@@ -2,7 +2,7 @@
 
 namespace App\View\Helper;
 
-use Cake\Event\Event;
+use Cake\Event\EventInterface;
 use Cake\Log\LogTrait;
 use Cake\View\Helper;
 
@@ -14,62 +14,62 @@ class FooHelper extends Helper {
 	use LogTrait;
 
 	/**
-	 * @param \Cake\Event\Event $event
+	 * @param \Cake\Event\EventInterface $event
 	 * @param string $viewFile
 	 * @return void
 	 */
-	public function beforeRenderFile(Event $event, $viewFile) {
+	public function beforeRenderFile(EventInterface $event, $viewFile) {
 		$viewFile = str_replace(ROOT . DS, '', $viewFile);
 		$this->log('FooHelper::beforeRenderFile (' . $viewFile . ')', 'info', 'exec');
 	}
 
 	/**
-	 * @param \Cake\Event\Event $event
+	 * @param \Cake\Event\EventInterface $event
 	 * @param string $viewFile
 	 * @param string $content
 	 * @return void
 	 */
-	public function afterRenderFile(Event $event, $viewFile, $content) {
+	public function afterRenderFile(EventInterface $event, $viewFile, $content) {
 		$viewFile = str_replace(ROOT . DS, '', $viewFile);
 		$this->log('FooHelper::afterRenderFile (' . $viewFile . ')', 'info', 'exec');
 	}
 
 	/**
-	 * @param \Cake\Event\Event $event
+	 * @param \Cake\Event\EventInterface $event
 	 * @param string $viewFile
 	 * @return void
 	 */
-	public function beforeRender(Event $event, $viewFile) {
+	public function beforeRender(EventInterface $event, $viewFile) {
 		$viewFile = str_replace(ROOT . DS, '', $viewFile);
 		$this->log('FooHelper::beforeRender (' . $viewFile . ')', 'info', 'exec');
 	}
 
 	/**
-	 * @param \Cake\Event\Event $event
+	 * @param \Cake\Event\EventInterface $event
 	 * @param string $viewFile
 	 * @return void
 	 */
-	public function afterRender(Event $event, $viewFile) {
+	public function afterRender(EventInterface $event, $viewFile) {
 		$viewFile = str_replace(ROOT . DS, '', $viewFile);
 		$this->log('FooHelper::afterRender (' . $viewFile . ')', 'info', 'exec');
 	}
 
 	/**
-	 * @param \Cake\Event\Event $event
+	 * @param \Cake\Event\EventInterface $event
 	 * @param string $layoutFile
 	 * @return void
 	 */
-	public function beforeLayout(Event $event, $layoutFile) {
+	public function beforeLayout(EventInterface $event, $layoutFile) {
 		$layoutFile = str_replace(ROOT . DS, '', $layoutFile);
 		$this->log('FooHelper::beforeLayout (' . $layoutFile . ')', 'info', 'exec');
 	}
 
 	/**
-	 * @param \Cake\Event\Event $event
+	 * @param \Cake\Event\EventInterface $event
 	 * @param string $layoutFile
 	 * @return void
 	 */
-	public function afterLayout(Event $event, $layoutFile) {
+	public function afterLayout(EventInterface $event, $layoutFile) {
 		$layoutFile = str_replace(ROOT . DS, '', $layoutFile);
 		$this->log('FooHelper::afterLayout (' . $layoutFile . ')', 'info', 'exec');
 	}

@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
 class Token extends Entity {
 
 	/**
-	 * Fields that can be mass assigned using newEntity() or patchEntity().
+	 * Fields that can be mass assigned using newEmptyEntity() or patchEntity().
 	 *
 	 * @var array
 	 */

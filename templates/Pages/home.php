@@ -17,8 +17,6 @@ use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 
-$this->layout = false;
-
 $cakeDescription = 'CakePHP execution app';
 ?>
 <!DOCTYPE html>
@@ -41,6 +39,7 @@ $cakeDescription = 'CakePHP execution app';
 				<li><?php echo $this->Html->link('Basic Execution Order Test', ['controller' => 'Tokens', 'action' => 'index']);?></li>
 
 				<li><?php echo $this->Html->link('Model Execution Order Test', ['controller' => 'Tokens', 'action' => 'model']);?></li>
+				<li><?php echo $this->Html->link('Model Validating/Patching only', ['controller' => 'Tokens', 'action' => 'modelPatch']);?></li>
 				<li><?php echo $this->Html->link('Model: Saving multiple entities', ['controller' => 'Tokens', 'action' => 'model_multi_save']);?></li>
 				<li><?php echo $this->Html->link('Model: Saving without validation', ['controller' => 'Tokens', 'action' => 'model_no_validation']);?></li>
 				<li><?php echo $this->Html->link('Model: Saving without validation and without rules', ['controller' => 'Tokens', 'action' => 'model_no_validation_no_rules']);?></li>
@@ -103,7 +102,7 @@ $cakeDescription = 'CakePHP execution app';
 					<p class="problem">Your logs directory is NOT writable.</p>
 				<?php endif; ?>
 
-				<?php $settings = Cache::config('_cake_core_'); ?>
+				<?php $settings = Cache::getConfig('_cake_core_'); ?>
 				<?php if (!empty($settings)): ?>
 					<p class="success">The <em><?= $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</p>
 				<?php else: ?>

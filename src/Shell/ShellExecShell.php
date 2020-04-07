@@ -5,17 +5,19 @@ namespace App\Shell;
 use Cake\Console\ConsoleIo;
 use Cake\Console\ConsoleOptionParser;
 use Cake\Console\Shell;
+use Cake\ORM\Locator\LocatorInterface;
 
 /**
- * Simple cleanup for exec shell
+ * Shell execution testing.
  */
-class ExecShell extends Shell {
+class ShellExecShell extends Shell {
 
 	/**
 	 * @param \Cake\Console\ConsoleIo|null $io
+	 * @param \Cake\ORM\Locator\LocatorInterface|null $locator
 	 */
-	public function __construct(ConsoleIo $io = null) {
-		parent::__construct($io);
+	public function __construct(?ConsoleIo $io = null, ?LocatorInterface $locator = null) {
+		parent::__construct($io, $locator);
 
 		// Dont send our logging calls to stdout...
 		$this->_io->setLoggers(false);
@@ -26,7 +28,7 @@ class ExecShell extends Shell {
 	/**
 	 * @return void
 	 */
-	public function initialize() {
+	public function initialize(): void {
 		parent::initialize();
 
 		$this->log('Shell::initialize', 'info', 'exec');
@@ -35,7 +37,7 @@ class ExecShell extends Shell {
 	/**
 	 * @return void
 	 */
-	public function startup() {
+	public function startup(): void {
 		parent::startup();
 
 		$this->log('Shell::startup', 'info', 'exec');
@@ -95,7 +97,7 @@ class ExecShell extends Shell {
 	 *
 	 * @return \Cake\Console\ConsoleOptionParser
 	 */
-	public function getOptionParser() {
+	public function getOptionParser(): ConsoleOptionParser {
 		$parser = new ConsoleOptionParser('console', false);
 		$parser->setDescription(
 			'For getting README/Results output from exec.log'
@@ -112,7 +114,7 @@ class ExecShell extends Shell {
 		)
 		->addSubcommand(
 			'prep', [
-				'help' => 'Run this after each test run (CLI or web). This preares the log data for RESULTS.md file.',
+				'help' => 'Run this after each test run (CLI or web). This prepares the log data for RESULTS.md file.',
 			]
 		);
 
@@ -126,7 +128,7 @@ class ExecShell extends Shell {
 	 * @param int $exitCode
 	 * @return void
 	 */
-	public function abort($message, $exitCode = self::CODE_ERROR) {
+	public function abort(string $message, int $exitCode = self::CODE_ERROR): void {
 		$this->log('Shell::abort', 'info', 'exec');
 
 		parent::abort($message, $exitCode);

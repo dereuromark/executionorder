@@ -3,7 +3,8 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
-use Cake\Event\Event;
+use Cake\Event\EventInterface;
+use Cake\Http\Response;
 
 /**
  * Application Controller
@@ -22,42 +23,42 @@ class AppController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function initialize() {
+	public function initialize(): void {
 		$this->loadComponent('Flash');
 
 		$this->log('Controller::initialize', 'info', 'exec');
 	}
 
 	/**
-	 * @param \Cake\Event\Event $event
+	 * @param \Cake\Event\EventInterface $event
 	 * @return void
 	 */
-	public function beforeFilter(Event $event) {
+	public function beforeFilter(EventInterface $event) {
 		$this->log('Controller::beforeFilter', 'info', 'exec');
 	}
 
 	/**
-	 * @param \Cake\Event\Event $event
+	 * @param \Cake\Event\EventInterface $event
 	 * @return void
 	 */
-	public function beforeRender(Event $event) {
+	public function beforeRender(EventInterface $event) {
 		$this->log('Controller::beforeRender', 'info', 'exec');
 	}
 
 	/**
-	 * @param \Cake\Event\Event $event
+	 * @param \Cake\Event\EventInterface $event
 	 * @return void
 	 */
-	public function afterFilter(Event $event) {
+	public function afterFilter(EventInterface $event) {
 		$this->log('Controller::afterFilter', 'info', 'exec');
 	}
 
 	/**
 	 * @param array|string $url
-	 * @param int|null $status
+	 * @param int $status
 	 * @return \Cake\Http\Response|null
 	 */
-	public function redirect($url, $status = null) {
+	public function redirect($url, int $status = 302): ?Response {
 		$this->log('Controller::redirect', 'info', 'exec');
 		return parent::redirect($url, $status);
 	}
