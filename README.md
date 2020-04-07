@@ -5,7 +5,7 @@
 [![Minimum PHP Version](http://img.shields.io/badge/php-%3E%3D%207.2-8892BF.svg)](https://php.net/)
 [![Coding Standards](https://img.shields.io/badge/cs-PSR--2--R-yellow.svg)](https://github.com/php-fig-rectified/fig-rectified-standards)
 
-A demo app to **display execution order of files and callbacks in a CakePHP 4 app**.
+A demo app to **display execution order of files and callbacks in a CakePHP app**.
 This can be very useful for knowing if app-, plugin- or other callbacks run in the
 order one expects them to.
 
@@ -35,7 +35,7 @@ Then run it and see the logs output.
 To build an updated RESULTS.md file, execute `bin/cake exec prep` after each run to build a TMP/exec.txt from the log output.
 
 ## Version notice
-This branch is only for CakePHP 4 (currently 4.0).
+This branch is only for CakePHP 4 (currently 4.1).
 For earlier versions please see [dereuromark.de/2013/01/22/cakephp-tips](http://www.dereuromark.de/2013/01/22/cakephp-tips/#dispatcher-execution-order)
 or check other branches.
 
