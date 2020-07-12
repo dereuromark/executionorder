@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.2",
-        "cakephp/cakephp": "dev-4.next as 4.0",
+        "cakephp/cakephp": "dev-master as 4.1",
         "cakephp/plugin-installer": "*"
     },
     "require-dev": {
@@ -24,11 +24,10 @@
         }
     },
     "scripts": {
-        "cs-check": "phpcs -p --standard=vendor/fig-r/psr2r-sniffer/PSR2R/ruleset.xml --ignore=/config/Migrations/ --extensions=php src/ tests/ config/ webroot/",
-        "cs-fix": "phpcbf --standard=vendor/fig-r/psr2r-sniffer/PSR2R/ruleset.xml --ignore=/config/Migrations/ --extensions=php src/ tests/ config/ webroot/",
+        "cs-check": "phpcs -p -s --standard=vendor/fig-r/psr2r-sniffer/PSR2R/ruleset.xml --ignore=/config/Migrations/ --extensions=php src/ tests/ config/ webroot/",
+        "cs-fix": "phpcbf -p --standard=vendor/fig-r/psr2r-sniffer/PSR2R/ruleset.xml --ignore=/config/Migrations/ --extensions=php src/ tests/ config/ webroot/",
         "post-install-cmd": "App\\Console\\Installer::postInstall",
         "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
     },
-    "minimum-stability" : "dev",
     "prefer-stable": true
 }

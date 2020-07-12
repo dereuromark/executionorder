@@ -16,14 +16,14 @@
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @license       https://opensource.org/licenses/mit-license.php MIT License
+ * @copyright Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link https://cakephp.org CakePHP(tm) Project
+ * @license https://opensource.org/licenses/mit-license.php MIT License
  */
 
 use Cake\Log\Log;
-use Cake\Routing\RouteBuilder;
 use Cake\Routing\Route\DashedRoute;
+use Cake\Routing\RouteBuilder;
 
 Log::write('info', 'config/routes', 'exec');
 

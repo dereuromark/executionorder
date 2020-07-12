@@ -60,6 +60,7 @@ class AppController extends Controller {
 	 */
 	public function redirect($url, int $status = 302): ?Response {
 		$this->log('Controller::redirect', 'info', 'exec');
+
 		return parent::redirect($url, $status);
 	}
 

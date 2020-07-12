@@ -35,16 +35,16 @@ class TokensController extends AppController {
 	}
 
 	/**
-	 * @return void
 	 * @throws \Cake\Http\Exception\NotFoundException
+	 * @return void
 	 */
 	public function exception() {
 		throw new NotFoundException();
 	}
 
 	/**
-	 * @return void
 	 * @throws \Exception
+	 * @return void
 	 */
 	public function model() {
 		$this->log('Controller.action', 'info', 'exec');
@@ -59,8 +59,8 @@ class TokensController extends AppController {
 	}
 
 	/**
-	 * @return void
 	 * @throws \Exception
+	 * @return void
 	 */
 	public function modelDynamically() {
 		$this->log('Controller.action', 'info', 'exec');
@@ -80,8 +80,8 @@ class TokensController extends AppController {
 	}
 
 	/**
-	 * @return void
 	 * @throws \Exception
+	 * @return void
 	 */
 	public function modelPatch() {
 		$this->log('Controller.action', 'info', 'exec');
@@ -94,8 +94,8 @@ class TokensController extends AppController {
 	}
 
 	/**
-	 * @return void
 	 * @throws \Exception
+	 * @return void
 	 */
 	public function modelNoValidation() {
 		$this->log('Controller.action', 'info', 'exec');
@@ -110,8 +110,8 @@ class TokensController extends AppController {
 	}
 
 	/**
-	 * @return void
 	 * @throws \Exception
+	 * @return void
 	 */
 	public function modelNoValidationNoRules() {
 		$this->log('Controller.action', 'info', 'exec');
@@ -126,8 +126,8 @@ class TokensController extends AppController {
 	}
 
 	/**
-	 * @return void
 	 * @throws \Exception
+	 * @return void
 	 */
 	public function modelMultiSave() {
 		$this->log('Controller.action', 'info', 'exec');
@@ -168,6 +168,7 @@ class TokensController extends AppController {
 			$token = $this->Tokens->patchEntity($token, $this->request->getData());
 			if ($this->Tokens->save($token)) {
 				$this->Flash->success('Wonderful');
+
 				return $this->redirect(['action' => 'add']);
 			}
 
@@ -187,6 +188,7 @@ class TokensController extends AppController {
 			$token = $this->Tokens->patchEntity($token, $this->request->getData());
 			if ($this->Tokens->save($token)) {
 				$this->Flash->success('Wonderful');
+
 				return $this->redirect(['action' => 'edit']);
 			}
 

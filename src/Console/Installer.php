@@ -8,9 +8,9 @@
  * Redistributions of files must retain the above copyright notice.
  *
  * @copyright Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link      http://cakephp.org CakePHP(tm) Project
- * @since     3.0.0
- * @license   http://www.opensource.org/licenses/mit-license.php MIT License
+ * @link http://cakephp.org CakePHP(tm) Project
+ * @since 3.0.0
+ * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
 namespace App\Console;
@@ -44,6 +44,7 @@ class Installer {
 				if (in_array($arg, ['Y', 'y', 'N', 'n'])) {
 					return $arg;
 				}
+
 				throw new Exception('This is not a valid answer. Please choose Y or n.');
 			});
 			$setFolderPermissions = $io->askAndValidate(
@@ -141,12 +142,14 @@ class Installer {
 
 		if ($count == 0) {
 			$io->write('No Security.salt placeholder to replace.');
+
 			return;
 		}
 
 		$result = file_put_contents($config, $content);
 		if ($result) {
 			$io->write('Updated Security.salt value in config/app.php');
+
 			return;
 		}
 		$io->write('Unable to update Security.salt value.');
