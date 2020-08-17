@@ -206,6 +206,7 @@ But `beforeMarshal` and `afterMarshal` always, so be careful not to overuse them
 ## Model delete
 ```
 ...
+AlphaBehavior:beforeDelete
 TokensTable:beforeDelete
 AlphaBehavior:afterDelete
 TokensTable:afterDelete

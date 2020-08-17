@@ -128,6 +128,16 @@ class AlphaBehavior extends Behavior {
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
+	public function beforeDelete(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
+		Log::write('info', 'AlphaBehavior:beforeDelete', 'exec');
+	}
+
+	/**
+	 * @param \Cake\Event\EventInterface $event
+	 * @param \Cake\Datasource\EntityInterface $entity
+	 * @param \ArrayObject $options
+	 * @return void
+	 */
 	public function afterDelete(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
 		Log::write('info', 'AlphaBehavior:afterDelete', 'exec');
 	}
