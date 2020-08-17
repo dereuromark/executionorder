@@ -83,6 +83,9 @@ TokensTable::beforeMarshal
 TokensTable::validationDefault
 AlphaBehavior::buildValidator
 TokensTable::buildValidator
+AlphaBehavior:afterMarshal
+TokensTable:afterMarshal
+
 TokensTable::buildRules
 AlphaBehavior::buildRules
 
@@ -94,6 +97,8 @@ AlphaBehavior::beforeSave
 TokensTable::beforeSave
 AlphaBehavior::afterSave
 TokensTable::afterSave
+AlphaBehavior:afterSaveCommit
+TokensTable:afterSaveCommit
 
 FooComponent::beforeRender
 Controller::beforeRender
@@ -129,6 +134,8 @@ AlphaBehavior::beforeSave
 TokensTable::beforeSave
 AlphaBehavior::afterSave
 TokensTable::afterSave
+AlphaBehavior:afterSaveCommit
+TokensTable:afterSaveCommit
 
 AlphaBehavior::beforeMarshal
 TokensTable::beforeMarshal
@@ -143,6 +150,8 @@ AlphaBehavior::beforeSave
 TokensTable::beforeSave
 AlphaBehavior::afterSave
 TokensTable::afterSave
+AlphaBehavior:afterSaveCommit
+TokensTable:afterSaveCommit
 ...
 ```
 This shows that `initialize`, `validationDefault`, `buildValidator` and `buildRules` are only executed once, and then cached.
@@ -168,6 +177,8 @@ AlphaBehavior::beforeSave
 TokensTable::beforeSave
 AlphaBehavior::afterSave
 TokensTable::afterSave
+AlphaBehavior:afterSaveCommit
+TokensTable:afterSaveCommit
 ...
 ```
 This shows that `validationDefault` and `buildValidator` are not executed in this case. Only the callbacks around the domain rules are.
@@ -185,10 +196,23 @@ AlphaBehavior::beforeSave
 TokensTable::beforeSave
 AlphaBehavior::afterSave
 TokensTable::afterSave
+AlphaBehavior:afterSaveCommit
+TokensTable:afterSaveCommit
 ...
 ```
 In this case not even `buildRules` and the `beforeRules`/`afterRules` callbacks are triggered.
 But `beforeMarshal` and `afterMarshal` always, so be careful not to overuse them for validation, as you cannot circumvent them then.
+
+## Model delete
+```
+...
+TokensTable:beforeDelete
+AlphaBehavior:afterDelete
+TokensTable:afterDelete
+AlphaBehavior:afterDeleteCommit
+TokensTable:afterDeleteCommit
+...
+```
 
 ## Redirecting
 ```

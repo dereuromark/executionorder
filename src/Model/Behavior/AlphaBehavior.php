@@ -112,4 +112,34 @@ class AlphaBehavior extends Behavior {
 		Log::write('info', 'AlphaBehavior:afterSave', 'exec');
 	}
 
+	/**
+	 * @param \Cake\Event\EventInterface $event
+	 * @param \Cake\Datasource\EntityInterface $entity
+	 * @param \ArrayObject $options
+	 * @return void
+	 */
+	public function afterSaveCommit(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
+		Log::write('info', 'AlphaBehavior:afterSaveCommit', 'exec');
+	}
+
+	/**
+	 * @param \Cake\Event\EventInterface $event
+	 * @param \Cake\Datasource\EntityInterface $entity
+	 * @param \ArrayObject $options
+	 * @return void
+	 */
+	public function afterDelete(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
+		Log::write('info', 'AlphaBehavior:afterDelete', 'exec');
+	}
+
+	/**
+	 * @param \Cake\Event\EventInterface $event
+	 * @param \Cake\Datasource\EntityInterface $entity
+	 * @param \ArrayObject $options
+	 * @return void
+	 */
+	public function afterDeleteCommit(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
+		Log::write('info', 'AlphaBehavior:afterDeleteCommit', 'exec');
+	}
+
 }

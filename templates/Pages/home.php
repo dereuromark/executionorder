@@ -40,9 +40,10 @@ $cakeDescription = 'CakePHP execution app';
 
 				<li><?php echo $this->Html->link('Model Execution Order Test', ['controller' => 'Tokens', 'action' => 'model']);?></li>
 				<li><?php echo $this->Html->link('Model Validating/Patching only', ['controller' => 'Tokens', 'action' => 'modelPatch']);?></li>
-				<li><?php echo $this->Html->link('Model: Saving multiple entities', ['controller' => 'Tokens', 'action' => 'model_multi_save']);?></li>
-				<li><?php echo $this->Html->link('Model: Saving without validation', ['controller' => 'Tokens', 'action' => 'model_no_validation']);?></li>
-				<li><?php echo $this->Html->link('Model: Saving without validation and without rules', ['controller' => 'Tokens', 'action' => 'model_no_validation_no_rules']);?></li>
+				<li><?php echo $this->Html->link('Model: Saving multiple entities', ['controller' => 'Tokens', 'action' => 'modelMultiSave']);?></li>
+				<li><?php echo $this->Html->link('Model: Saving without validation', ['controller' => 'Tokens', 'action' => 'modelNoValidation']);?></li>
+				<li><?php echo $this->Html->link('Model: Saving without validation and without rules', ['controller' => 'Tokens', 'action' => 'modelNoValidationNoRules']);?></li>
+				<li><?php echo $this->Html->link('Model: Deleting', ['controller' => 'Tokens', 'action' => 'modelDelete']);?></li>
 
 				<li><?php echo $this->Html->link('Redirecting', ['controller' => 'Tokens', 'action' => 'redirecting']);?></li>
 				<li><?php echo $this->Html->link('Exceptions', ['controller' => 'Tokens', 'action' => 'exception']);?></li>

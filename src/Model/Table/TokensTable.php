@@ -153,6 +153,16 @@ class TokensTable extends Table {
 	 * @param \ArrayObject $options
 	 * @return void
 	 */
+	public function afterSaveCommit(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
+		Log::write('info', 'TokensTable:afterSaveCommit', 'exec');
+	}
+
+	/**
+	 * @param \Cake\Event\EventInterface $event
+	 * @param \Cake\Datasource\EntityInterface $entity
+	 * @param \ArrayObject $options
+	 * @return void
+	 */
 	public function beforeDelete(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
 		Log::write('info', 'TokensTable:beforeDelete', 'exec');
 	}
@@ -165,6 +175,16 @@ class TokensTable extends Table {
 	 */
 	public function afterDelete(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
 		Log::write('info', 'TokensTable:afterDelete', 'exec');
+	}
+
+	/**
+	 * @param \Cake\Event\EventInterface $event
+	 * @param \Cake\Datasource\EntityInterface $entity
+	 * @param \ArrayObject $options
+	 * @return void
+	 */
+	public function afterDeleteCommit(EventInterface $event, EntityInterface $entity, ArrayObject $options) {
+		Log::write('info', 'TokensTable:afterDeleteCommit', 'exec');
 	}
 
 }

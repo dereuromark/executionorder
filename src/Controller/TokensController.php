@@ -150,6 +150,28 @@ class TokensController extends AppController {
 	}
 
 	/**
+	 * @throws \Exception
+	 * @return void
+	 */
+	public function modelDelete() {
+		$this->log('Controller.action', 'info', 'exec');
+
+		$token = $this->Tokens->newEmptyEntity();
+		$token = $this->Tokens->patchEntity($token, ['type' => 'x', 'key' => 'x', 'content' => 'foo', 'used' => 0, 'unlimited' => 0]);
+
+		$result = $this->Tokens->save($token);
+		if (!$result) {
+			throw new Exception('Save failed');
+		}
+
+		$token = $this->Tokens->get($result->id);
+		$result = $this->Tokens->delete($token);
+		if (!$result) {
+			throw new Exception('Delete failed');
+		}
+	}
+
+	/**
 	 * @return \Cake\Http\Response|null
 	 */
 	public function redirecting() {
