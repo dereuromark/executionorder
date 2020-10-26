@@ -46,7 +46,17 @@ class TokensController extends AppController {
 	 * @throws \Exception
 	 * @return void
 	 */
-	public function model() {
+	public function modelFind() {
+		$this->log('Controller.action', 'info', 'exec');
+
+		$token = $this->Tokens->find()->first();
+	}
+
+	/**
+	 * @throws \Exception
+	 * @return void
+	 */
+	public function modelSave() {
 		$this->log('Controller.action', 'info', 'exec');
 
 		$token = $this->Tokens->newEmptyEntity();

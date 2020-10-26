@@ -38,6 +38,27 @@ Controller::afterFilter
 ```
 Note that component callbacks are usually called first.
 
+## Model find
+```
+config/bootstrap
+config/routes
+Controller::initialize
+FooComponent::beforeFilter
+Controller::beforeFilter
+FooComponent::startup
+Controller.action
+
+TokensTable:initialize
+AlphaBehavior:initialize
+AlphaBehavior:beforeFind
+TokensTable:beforeFind
+
+FooComponent::beforeRender
+Controller::beforeRender
+FooComponent::shutdown
+Controller::afterFilter
+```
+
 ## Model marshal (patch/validate) only
 ```
 config/bootstrap

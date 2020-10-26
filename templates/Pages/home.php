@@ -38,8 +38,9 @@ $cakeDescription = 'CakePHP execution app';
 			<ul>
 				<li><?php echo $this->Html->link('Basic Execution Order Test', ['controller' => 'Tokens', 'action' => 'index']);?></li>
 
-				<li><?php echo $this->Html->link('Model Execution Order Test', ['controller' => 'Tokens', 'action' => 'model']);?></li>
-				<li><?php echo $this->Html->link('Model Validating/Patching only', ['controller' => 'Tokens', 'action' => 'modelPatch']);?></li>
+				<li><?php echo $this->Html->link('Model: Execution Order Test', ['controller' => 'Tokens', 'action' => 'modelFind']);?></li>
+				<li><?php echo $this->Html->link('Model: Saving', ['controller' => 'Tokens', 'action' => 'modelSave']);?></li>
+				<li><?php echo $this->Html->link('Model: Validating/Patching only', ['controller' => 'Tokens', 'action' => 'modelPatch']);?></li>
 				<li><?php echo $this->Html->link('Model: Saving multiple entities', ['controller' => 'Tokens', 'action' => 'modelMultiSave']);?></li>
 				<li><?php echo $this->Html->link('Model: Saving without validation', ['controller' => 'Tokens', 'action' => 'modelNoValidation']);?></li>
 				<li><?php echo $this->Html->link('Model: Saving without validation and without rules', ['controller' => 'Tokens', 'action' => 'modelNoValidationNoRules']);?></li>

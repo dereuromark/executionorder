@@ -6,6 +6,7 @@ use ArrayObject;
 use Cake\Datasource\EntityInterface;
 use Cake\Event\EventInterface;
 use Cake\Log\Log;
+use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -27,6 +28,17 @@ class TokensTable extends Table {
 		$this->addBehavior('Timestamp');
 
 		$this->addBehavior('Alpha');
+	}
+
+	/**
+	 * @param \Cake\Event\EventInterface $event
+	 * @param \Cake\ORM\Query $query
+	 * @param \ArrayObject $options
+	 *
+	 * @return void
+	 */
+	public function beforeFind(EventInterface $event, Query $query, ArrayObject $options): void {
+		Log::write('info', 'TokensTable:beforeFind', 'exec');
 	}
 
 	/**

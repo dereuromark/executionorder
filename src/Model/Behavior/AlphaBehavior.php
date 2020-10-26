@@ -7,6 +7,7 @@ use Cake\Datasource\EntityInterface;
 use Cake\Event\EventInterface;
 use Cake\Log\Log;
 use Cake\ORM\Behavior;
+use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\Validation\Validator;
 
@@ -29,6 +30,17 @@ class AlphaBehavior extends Behavior {
 	 * @var array
 	 */
 	protected $_defaultConfig = [];
+
+	/**
+	 * @param \Cake\Event\EventInterface $event
+	 * @param \Cake\ORM\Query $query
+	 * @param \ArrayObject $options
+	 *
+	 * @return void
+	 */
+	public function beforeFind(EventInterface $event, Query $query, ArrayObject $options): void {
+		Log::write('info', 'AlphaBehavior:beforeFind', 'exec');
+	}
 
 	/**
 	 * @param \Cake\Event\EventInterface $event
