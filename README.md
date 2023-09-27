@@ -35,7 +35,7 @@ Then run it and see the logs output.
 To build an updated RESULTS.md file, execute `bin/cake exec prep` after each run to build a TMP/exec.txt from the log output.
 
 ## Version notice
-This branch is only for CakePHP 4 (currently 4.1).
+This branch is only for CakePHP 4 (currently 4.4).
 
 For earlier versions please see [dereuromark.de/2013/01/22/cakephp-tips](http://www.dereuromark.de/2013/01/22/cakephp-tips/#dispatcher-execution-order)
 or check other branches.
