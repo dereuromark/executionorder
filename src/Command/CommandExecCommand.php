@@ -9,8 +9,6 @@ use Cake\Console\ConsoleIo;
 class CommandExecCommand extends Command {
 
 	public function __construct() {
-		parent::__construct();
-
 		$this->log('Command::__construct', 'info', 'exec');
 	}
 
@@ -42,7 +40,7 @@ class CommandExecCommand extends Command {
 		// Dont send our logging calls to stdout...
 		$io->setLoggers(false);
 
-		$this->log('Shell::command', 'info', 'exec');
+		$this->log('Command::execute', 'info', 'exec');
 
 		return static::CODE_SUCCESS;
 	}

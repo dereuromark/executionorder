@@ -274,23 +274,3 @@ Command::initialize
 Command::startup
 Command::execute
 ```
-
-## Basic shell command
-```
-config/bootstrap (default + cli one)
-Shell::__construct
-Shell::initialize
-Shell::startup
-Shell::command
-```
-
-## Basic shell command with error() call
-```
-config/bootstrap (default + cli one)
-Shell::__construct (to disable logging)
-Shell::initialize
-Shell::startup
-Shell::command
-Shell::abort
-```
-Note that `abort()` can't be used as "shutdown" method, as it is only invoked in error case, not on normal shutdown.

@@ -51,7 +51,7 @@ class Installer {
 				'<info>Set Folder Permissions ? (Default to Y)</info> [<comment>Y,n</comment>]? ',
 				$validator,
 				false,
-				'Y'
+				'Y',
 			);
 
 			if (in_array($setFolderPermissions, ['Y', 'y'])) {

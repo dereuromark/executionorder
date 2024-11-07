@@ -35,13 +35,4 @@ return [
 		],
 	],
 
-	'Log' => [
-		'debug' => [
-			'scopes' => false,
-		],
-		'error' => [
-			'scopes' => false,
-		],
-	],
-
 ];

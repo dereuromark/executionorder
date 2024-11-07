@@ -5,8 +5,8 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": ">=7.2",
-        "cakephp/cakephp": "^4.4",
+        "php": ">=8.2",
+        "cakephp/cakephp": "^5.1",
         "cakephp/plugin-installer": "*"
     },
     "require-dev": {
@@ -29,5 +29,11 @@
         "post-install-cmd": "App\\Console\\Installer::postInstall",
         "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
     },
-    "prefer-stable": true
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "cakephp/plugin-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
 }
